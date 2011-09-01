@@ -70,7 +70,7 @@ class PagesController extends AppController {
 		$i=0;
 		foreach($data as $var)
 		{
-			$tmp1 = $this->Software->find('all',array('conditions'=>'Software.softCat='."'".$var."'",'fields' => array('Software.softName','Software.softCat')));
+			$tmp1 = $this->Software->find('all',array('conditions'=>'Software.softCat='."'".$var."'",'fields' => array('DISTINCT Software.softSubCat','Software.softCat')));
 			$this->set("w00t".$i,$tmp1);
 			$i++;
 		}

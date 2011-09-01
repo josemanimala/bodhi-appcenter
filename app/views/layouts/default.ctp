@@ -364,10 +364,7 @@ html[xmlns] #nav {
 </div>
 <div class="page"> 
 
-			<?php echo $this->Session->flash(); 
-			      print_r($software);
-			      print_r($w00t1);
-			?>
+			<?php echo $this->Session->flash(); ?>
 
 			<?php echo $content_for_layout; ?>
 	<?php echo $this->element('sql_dump'); ?>

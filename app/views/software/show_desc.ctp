@@ -1,5 +1,5 @@
-<h1 class="sectionedit1"><a><?PHP ?></a></h1> 
-
+<h1 class="sectionedit1"><a><?PHP echo str_replace("_"," ",$data[0]['Software']['softName']);?></a></h1> 
+<?PHP debug($data);
 <div class="level1"> 
 <p> 
 <img src="<?PHP ?>" class="medialeft" align="left" alt="" width="200" />

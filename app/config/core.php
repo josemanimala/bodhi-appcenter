@@ -240,7 +240,15 @@
  */
 	Configure::write('Acl.classname', 'DbAcl');
 	Configure::write('Acl.database', 'default');
+/**
+*Custom application configs for appcenter
+*
+*
+**/
 
+Configure::write('Appcenter.build','Incremental-BossyDame');
+Configure::write('Appcenter.year','2011');
+Configure::write('Appcenter.copyright','BodhiLinux Web Team');
 /**
  * If you are on PHP 5.3 uncomment this line and correct your server timezone
  * to fix the date & time related errors.

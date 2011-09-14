@@ -370,5 +370,9 @@ html[xmlns] #nav {
 	<?php echo $this->element('sql_dump'); ?>
 </div>
 </div>
+<div id='footer'>
+<?PHP
+echo "<center><b>Bodhi Appcenter</b>,".Configure::read( 'Appcenter.copyright' )." "Configure::read( 'Appcenter.year' )." ".Configure::read( 'Appcenter.build' )
+?>
 </body> 
 </html>

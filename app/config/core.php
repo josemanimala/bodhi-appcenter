@@ -246,9 +246,9 @@
 *
 **/
 
-Configure::write('Appcenter.build','Incremental-BossyDame');
+Configure::write('Appcenter.build','Build: Incremental-BossyDame');
 Configure::write('Appcenter.year','2011');
-Configure::write('Appcenter.copyright','Bodhilinux Web Team');
+Configure::write('Appcenter.copyright','(c) Bodhilinux Web Team');
 /**
  * If you are on PHP 5.3 uncomment this line and correct your server timezone
  * to fix the date & time related errors.

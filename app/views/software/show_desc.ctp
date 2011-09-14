@@ -40,7 +40,7 @@ The <strong>Download</strong> button is to download and transfer the package to 
 <table width="35%"> 
 <tr><td align="center"><a href="<?PHP echo $data[0]['Software']['softApt'];?>"><img src="http://www.bodhilinux.com/images/installnow.png" border="0"></a></td> 
  
-<td align="center"><a href="<?PHP eco $data[0]['Software']['softDown'];?>"><img src="http://www.bodhilinux.com/images/downloadoffline.png" border="0"></a> 
+<td align="center"><a href="<?PHP echo $data[0]['Software']['softDown'];?>"><img src="http://www.bodhilinux.com/images/downloadoffline.png" border="0"></a> 
  
 </td></tr> 
 </table> 

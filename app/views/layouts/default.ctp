@@ -372,7 +372,7 @@ html[xmlns] #nav {
 </div>
 <div id='footer'>
 <?PHP
-echo "<center><h4>Bodhi Appcenter,".Configure::read( 'Appcenter.copyright' ).",&nbsp; ".Configure::read( 'Appcenter.year' ).",&nbsp;".Configure::read( 'Appcenter.build' )."</h4></center>";
+echo "<center><h3>Bodhi Appcenter,&nbsp;".Configure::read( 'Appcenter.copyright' ).",&nbsp; ".Configure::read( 'Appcenter.year' ).",&nbsp;".Configure::read( 'Appcenter.build' )."</h3></center>";
 ?>
 </body> 
 </html>

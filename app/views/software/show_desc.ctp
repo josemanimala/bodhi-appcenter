@@ -1,5 +1,4 @@
 <h1 class="sectionedit1"><a><?PHP echo str_replace("_"," ",$data[0]['Software']['softName']);?></a></h1> 
-<?PHP debug($data); ?>
 <div class="level1"> 
 <p> 
 <img src="<?PHP echo $data[0]['Software']['softScreenie'];?>" class="medialeft" align="left" alt="" width="200" />
@@ -44,7 +43,7 @@ The <strong>Download</strong> button is to download and transfer the package to 
  
 </td></tr> 
 </table> 
- 
+ <strong><a href="<?PHP echo $data[0]['Software']['softApt']?>">FAST INSTALL</a></strong> bypasses the apt-get update done with the "Install Now" button and can <strong><u>NOT</u></strong> be used with a fresh installation.
 </p> 
  
 </div> 

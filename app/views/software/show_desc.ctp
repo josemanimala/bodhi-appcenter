@@ -2,7 +2,7 @@
 <?PHP debug($data); ?>
 <div class="level1"> 
 <p> 
-<img src="<?PHP ?>" class="medialeft" align="left" alt="" width="200" />
+<img src="<?PHP echo $data[0]['Software']['softScreenie'];?>" class="medialeft" align="left" alt="" width="200" />
 </p> 
  
 <p> 
@@ -38,7 +38,7 @@ The <strong>Download</strong> button is to download and transfer the package to 
 <p> 
  
 <table width="35%"> 
-<tr><td align="center"><a href="<?PHP echo $data[0]['Software']['softApt'];?>"><img src="http://www.bodhilinux.com/images/installnow.png" border="0"></a></td> 
+<tr><td align="center"><a href="<?PHP echo $data[0]['Software']['softApt'].'?refresh=yep';?>"><img src="http://www.bodhilinux.com/images/installnow.png" border="0"></a></td> 
  
 <td align="center"><a href="<?PHP echo $data[0]['Software']['softDown'];?>"><img src="http://www.bodhilinux.com/images/downloadoffline.png" border="0"></a> 
  
@@ -51,15 +51,22 @@ The <strong>Download</strong> button is to download and transfer the package to 
  
 <h2 class="sectionedit4"><a>Related / Similar Applications</a></h2> 
 <div class="level2"> 
-<p> 
-related software
-anchor <br/> 
+<p>
+<?PHP
+$list = explode(",",$data[0]['Software']['simSoft']);
+foreach($list as $var)
+{
+	echo $html->link(str_replace("_"," ",$var), array('controller' => 'software','action' => 'showDesc',$var))."<br/>";
+}
+?>
 </p> 
 </div> 
  
 <h2 class="sectionedit5"><a>Software Homepage</a></h2> 
 <div class="level2"> 
 <p> 
-homepage
+<?PHP
+echo $html->link($data[0]['Software']['softHome'],$data[0]['Software']['softHome']);
+?>
 </p> 
 </div>

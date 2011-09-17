@@ -25,7 +25,7 @@
 <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.3.0/build/cssreset/reset-min.css" /> 
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
   <title> 
-		<?php echo "Bodhi Software"; ?>
+		<?php echo "Bodhi Appcenter"; ?>
   </title> 
 	
 <link rel="shortcut icon" href="http://bodhilinux.com/software/lib/tpl/incognitek_bodhi3/images/favicon.ico.png" /> 
@@ -314,7 +314,7 @@ html[xmlns] #nav {
 </style>
 <div class="menu"> 
 <div id="bologo"> 
-<a href="http://bodhilinux.com/index.php"  accesskey="h" title="[ALT+H]"><img src="http://bodhilinux.com/software/lib/tpl/incognitek_bodhi3/images/weblogo.png" alt="Bodhi Software" /></a></div> 
+<a href="http://bodhilinux.com/index.php"  accesskey="h" title="[ALT+H]"><img src="http://bodhilinux.com/software/lib/tpl/incognitek_bodhi3/images/weblogo.png" alt="Bodhi Appcenter" /></a></div> 
 <ul id="nav"> 
 <li><a href="http://www.bodhilinux.com/index.php">Home</a></li> 
  

@@ -36,7 +36,7 @@ class SoftwareController extends AppController {
 	{
 		$result = $this -> Software -> find('all',array('conditions'=>"softName LIKE '%".$query."%' OR softCat LIKE '%".str_replace(" ","_",$query)."%' OR softSubCat LIKE '%".str_replace(" ","_",$query)."%'"));
 		$this->set('result', $result);
-		$this->layout = 'ajax';
+		//$this->layout = 'ajax';
 	}
 	}
 }

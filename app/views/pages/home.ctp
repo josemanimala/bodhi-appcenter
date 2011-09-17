@@ -15,10 +15,10 @@ foreach($softbundle as $var)
 {
 	echo "<p>";
 	echo $html->link($var['Softbundle']['bundleName'], array('controller' => 'software',      'action' => 'softbundles',$var['Softbundle']['id']));
-echo "<br/>";
+	echo "<br/>";
 
-echo $var['Softbundle']['bundleShrtDesc']; ?>
-echo "</p>";
+	echo $var['Softbundle']['bundleShrtDesc'];
+	echo "</p>";
  } ?>
  
 </div>

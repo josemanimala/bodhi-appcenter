@@ -368,7 +368,7 @@ html[xmlns] #nav {
 </div>     
 </div>
 <div id='searchBar' align='right'>
-<?php echo $form->create('Software'); ?>
+<?php echo $form->create('Software','/software/search'); ?>
 <?php 
 echo '<span align="right"><font color="black" size="4">Search for software:&nbsp;</font></span>';
 echo $ajax->autoComplete('Software.search', '/software/search')?>

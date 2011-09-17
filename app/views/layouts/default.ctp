@@ -314,7 +314,7 @@ html[xmlns] #nav {
 </style>
 <div class="menu"> 
 <div id="bologo"> 
-<a href="/index.php"  accesskey="h" title="[ALT+H]"><img src="http://bodhilinux.com/software/lib/tpl/incognitek_bodhi3/images/weblogo.png" alt="Bodhi Software" /></a></div> 
+<a href="http://bodhilinux.com/index.php"  accesskey="h" title="[ALT+H]"><img src="http://bodhilinux.com/software/lib/tpl/incognitek_bodhi3/images/weblogo.png" alt="Bodhi Software" /></a></div> 
 <ul id="nav"> 
 <li><a href="http://www.bodhilinux.com/index.php">Home</a></li> 
  

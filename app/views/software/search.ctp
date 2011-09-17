@@ -9,6 +9,7 @@ foreach ($result as $user)
     print '</li>';
 }
 print '</ul>';
+print '</div>';
 }
 //$this->layout = 'ajax';
 ?>

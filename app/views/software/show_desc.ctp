@@ -52,10 +52,10 @@ The <strong>Download</strong> button is to download and transfer the package to 
 <div class="level2"> 
 <p>
 <?PHP
-$list = explode(",",$data[0]['Software']['simSoft']);
+$list = ClassRegistry::init('Software')->find('all',array('conditions'=>'Software.softSubCat='."'".$data[0]['Software']['softSubCat']."'",'fields'=>array('Software.softName')));
 foreach($list as $var)
 {
-	echo $html->link(str_replace("_"," ",$var), array('controller' => 'software','action' => 'showDesc',$var))."<br/>";
+	echo $html->link(str_replace("_"," ",$var['Software']['softName']), array('controller' => 'software','action' => 'showDesc',$var['Software']['softName']))."<br/>";
 }
 ?>
 </p> 

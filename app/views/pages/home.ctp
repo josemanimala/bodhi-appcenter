@@ -10,7 +10,6 @@ Welcome to the Bodhi Linux software page. Here you will find easy to install sof
  
 
 <?PHP  
-print_r($softbundle);
 foreach($softbundle as $var)
 {
 	echo "<p>";

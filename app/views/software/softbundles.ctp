@@ -13,54 +13,11 @@ $list = explode(',',$data[0]['Softbundle']['softList']);
 
 foreach($list as $var)
 {
-$data1 = ClassRegistry::init('Software')->find('all',array('conditions'=>'Software.id='."'".$var."'"));
+$data1 = ClassRegistry::init('Software')->find('all',array('conditions'=>'Software.id='."'".$var."'",'fields'=>array('Software.softName','Software.softSubCat')));
 print_r($data1);
+echo "*&nbsp;".$html->link(str_replace("_"," ",$var['Software']['softName']), array('controller' => 'software','action' => 'showDesc',$var['Software']['softName']))."-".echo $html->link(str_replace("_"," ",$var['Software']['softSubCat']), array('controller' => 'software','action' => 'showL2',$var['Software']['softSubCat']))."<br/>";
 }
 ?>
-* <a href="/software/doku.php?id=adobe_pdf_reader" class="wikilink1" title="adobe_pdf_reader"> Adobe</a> - <a href="/software/doku.php?id=pdf_reader" class="wikilink1" title="pdf_reader">PDF Reader</a><br/>
-
-* <a href="/software/doku.php?id=cheese" class="wikilink1" title="cheese">Cheese</a> - <a href="/software/doku.php?id=webcam" class="wikilink1" title="webcam">Webcam</a><br/>
-
-* <a href="/software/doku.php?id=filelight" class="wikilink1" title="filelight">Filelight</a> - Disc Usage Analyzer (<a href="/software/doku.php?id=system_tools" class="wikilink1" title="system_tools">System Tools</a>)<br/>
-
-* <a href="/software/doku.php?id=firefox_current" class="wikilink1" title="firefox_current"> Firefox (current)</a> - <a href="/software/doku.php?id=web_browser" class="wikilink1" title="web_browser">Web Browser</a><br/>
-
-* <a href="/software/doku.php?id=gedit" class="wikilink1" title="gedit">gEdit</a> - <a href="/software/doku.php?id=text_editor" class="wikilink1" title="text_editor">Text Editor</a><br/>
-
-* <a href="/software/doku.php?id=gimp" class="wikilink1" title="gimp">GIMP</a> - <a href="/software/doku.php?id=image_editing" class="wikilink1" title="image_editing">Image Editing</a><br/>
-
-* <a href="/software/doku.php?id=handbrake" class="wikilink1" title="handbrake">Handbrake</a> - <a href="/software/doku.php?id=ripping" class="wikilink1" title="ripping">Ripping</a><br/>
-
-* <a href="/software/doku.php?id=k3b" class="wikilink1" title="k3b">K3B</a> - <a href="/software/doku.php?id=burning" class="wikilink1" title="burning">Burning</a><br/>
-
-* <a href="/software/doku.php?id=libreoffice" class="wikilink1" title="libreoffice">LibreOffice</a> - <a href="/software/doku.php?id=office_suite" class="wikilink1" title="office_suite">Office Suite</a><br/>
-
-* <a href="/software/doku.php?id=mirage" class="wikilink1" title="mirage">Mirage</a> - <a href="/software/doku.php?id=image_viewer" class="wikilink1" title="image_viewer">Image Viewer</a><br/>
-
-* <a href="/software/doku.php?id=okular" class="wikilink1" title="okular">Okular</a> - <a href="/software/doku.php?id=pdf_reader" class="wikilink1" title="pdf_reader">PDF Reader</a><br/>
-
-* <a href="/software/doku.php?id=openshot" class="wikilink1" title="openshot">Openshot</a> - <a href="/software/doku.php?id=video_editor" class="wikilink1" title="video_editor">Video Editor</a><br/>
-
-* <a href="/software/doku.php?id=qalculate" class="wikilink1" title="qalculate">Qalculate</a> - Calculator (<a href="/software/doku.php?id=science" class="wikilink1" title="science">Science</a>)<br/>
-
-* <a href="/software/doku.php?id=pidgin" class="wikilink1" title="pidgin">Pidgin</a> - <a href="/software/doku.php?id=instant_messenger" class="wikilink1" title="instant_messenger">Instant Messenger</a><br/>
-
-* <a href="/software/doku.php?id=printing" class="wikilink1" title="printing">Printing</a> - CUPS and <acronym title="Graphical User Interface">GUI</acronym> (<a href="/software/doku.php?id=system_tools" class="wikilink1" title="system_tools">System Tools</a>)<br/>
-
-* <a href="/software/doku.php?id=rhythmbox" class="wikilink1" title="rhythmbox">Rhythmbox</a> - Music Player (<a href="/software/doku.php?id=media_player" class="wikilink1" title="media_player">Media Player</a>)<br/>
-
-* <a href="/software/doku.php?id=shotwell" class="wikilink1" title="shotwell">Shotwell</a> - <a href="/software/doku.php?id=photo_manager" class="wikilink1" title="photo_manager">Photo Manager</a><br/>
-
-* <a href="/software/doku.php?id=simple_scan" class="wikilink1" title="simple_scan">Simple Scan</a> - Scanning <acronym title="Graphical User Interface">GUI</acronym> (<a href="/software/doku.php?id=system_tools" class="wikilink1" title="system_tools">System Tools</a>)<br/>
-
-* <a href="/software/doku.php?id=thunderbird" class="wikilink1" title="thunderbird">Thunderbird</a> - <a href="/software/doku.php?id=email" class="wikilink1" title="email">Email</a><br/>
-
-* <a href="/software/doku.php?id=transmission" class="wikilink1" title="transmission">Transmission</a> - <a href="/software/doku.php?id=torrent" class="wikilink1" title="torrent">Torrent</a><br/>
-
-* <a href="/software/doku.php?id=vlc" class="wikilink1" title="vlc">VLC</a> - Video Player (<a href="/software/doku.php?id=media_player" class="wikilink1" title="media_player">Media Player</a>)<br/>
-
-* <a href="/software/doku.php?id=xchat" class="wikilink1" title="xchat">XChat</a> - <a href="/software/doku.php?id=irc" class="wikilink1" title="irc">IRC</a><br/>
-
 </p>
 
 </div>
@@ -72,9 +29,9 @@ print_r($data1);
 
 
 <table width="35%">
-<tr><td align="center"><a href="apt:bodhi-recommends?refresh=yep"><img src="http://www.bodhilinux.com/images/installnow.png" border="0"></a></td>
+<tr><td align="center"><a href="<?PHP echo $data[0]['Softbundle']['bundleApt']."?refresh=yep";?>"><img src="http://www.bodhilinux.com/images/installnow.png" border="0"></a></td>
 
-<td align="center"><a href="http://downloads.bodhilinux.com/jeff91/bodhi-recommends.bod"><img src="http://www.bodhilinux.com/images/downloadoffline.png" border="0"></a>
+<td align="center"><a href="<?PHP echo $data[0]['Softbundle']['bundleDown'];?>"><img src="http://www.bodhilinux.com/images/downloadoffline.png" border="0"></a>
 
 </td></tr>
 </table>

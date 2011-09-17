@@ -15,6 +15,7 @@ foreach($list as $var)
 {
 $data1 = ClassRegistry::init('Software')->find('all',array('conditions'=>'Software.id='."'".$var."'"));
 print_r($data1);
+}
 ?>
 * <a href="/software/doku.php?id=adobe_pdf_reader" class="wikilink1" title="adobe_pdf_reader"> Adobe</a> - <a href="/software/doku.php?id=pdf_reader" class="wikilink1" title="pdf_reader">PDF Reader</a><br/>
 

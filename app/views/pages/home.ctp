@@ -10,7 +10,7 @@ Welcome to the Bodhi Linux software page. Here you will find easy to install sof
  
 <p> 
 <?PHP  
-print_r($data1);
+print_r($softbundle);
 echo $html->link('Nikhila Application Set', array(     'controller' => 'software',      'action' => 'softbundles',1)); ?><br/> 
 
 An Application Suite of full featured software.

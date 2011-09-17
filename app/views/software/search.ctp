@@ -10,5 +10,5 @@ foreach ($result as $user)
 }
 print '</ul>';
 }
-$this->layout = 'ajax';
+//$this->layout = 'ajax';
 ?>

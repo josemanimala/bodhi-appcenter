@@ -43,6 +43,7 @@ class SoftwareController extends AppController {
 function searchPost()
 {
 	$this->search();
+	$this->render('search');
 }
 }
 ?>

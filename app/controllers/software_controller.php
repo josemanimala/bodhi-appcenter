@@ -49,8 +49,6 @@ function searchPost()
 	{
 		$result = $this -> Software -> find('all',array('conditions'=>"softName LIKE '%".$query."%' OR softCat LIKE '%".str_replace(" ","_",$query)."%' OR softSubCat LIKE '%".str_replace(" ","_",$query)."%'"));
 		$this->set('result', $result);	
-	echo '<h2 class="sectionedit1"><a>Software bundles</a></h2> 
-<div class="level2"> ';
 	$this->render('search');
 	}
 	}

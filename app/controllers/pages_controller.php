@@ -52,7 +52,7 @@ class PagesController extends AppController {
  * @var array
  * @access public
  */
-	var $uses = array('Software');
+	var $uses = array('Software','Softbundles');
 
 	
 
@@ -65,6 +65,7 @@ class PagesController extends AppController {
 	function display() {
 		//$this->loadModel('Software');
 		$data = $this->Software->find('all',array('fields' => array('DISTINCT Software.softCat')));
+		$data1 = $this->Softbundle->find('all',array('fields' => array('Softbundle.bundleName','Softbundle.id','Softbundle.bundleShrtDesc')));
 		$data= Set::extract($data, '/Software/softCat');
 		$i=0;
 		foreach($data as $var)

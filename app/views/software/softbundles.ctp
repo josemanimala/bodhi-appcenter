@@ -2,6 +2,7 @@
 print_r($data);
 
 echo $data[0]['Softbundle']['bundleDesc'];
+print_r($data);
 ?>
 
 <h2 class="sectionedit2"><a name="packages" id="packages">Packages</a></h2>
@@ -14,7 +15,7 @@ $list = explode(',',$data[0]['Softbundle']['softList']);
 foreach($list as $var)
 {
 $data1 = ClassRegistry::init('Software')->find('all',array('conditions'=>'Software.id='."'".$var."'",'fields'=>array('Software.softName','Software.softSubCat')));
-print_r($data1);
+
 echo "*&nbsp;".$html->link(str_replace("_"," ",$var['Software']['softName']), array('controller' => 'software','action' => 'showDesc',$var['Software']['softName']))."-".$html->link(str_replace("_"," ",$var['Software']['softSubCat']), array('controller' => 'software','action' => 'showL2',$var['Software']['softSubCat']))."<br/>";
 }
 ?>

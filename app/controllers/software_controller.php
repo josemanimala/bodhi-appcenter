@@ -36,14 +36,22 @@ class SoftwareController extends AppController {
 	{
 		$result = $this -> Software -> find('all',array('conditions'=>"softName LIKE '%".$query."%' OR softCat LIKE '%".str_replace(" ","_",$query)."%' OR softSubCat LIKE '%".str_replace(" ","_",$query)."%'"));
 		$this->set('result', $result);
-		//$this->layout = 'ajax';
+		$this->layout = 'ajax';
 	}
 	}
 }
 function searchPost()
 {
-	$this->search();
+	if (!empty($this->data['Software']['search']))
+	{
+	$query = $this -> Sanitize -> paranoid($this->data['Software']['search'],array(' '));
+	if (strlen($query) > 0)
+	{
+		$result = $this -> Software -> find('all',array('conditions'=>"softName LIKE '%".$query."%' OR softCat LIKE '%".str_replace(" ","_",$query)."%' OR softSubCat LIKE '%".str_replace(" ","_",$query)."%'"));
+		$this->set('result', $result);	
 	$this->render('search');
+	}
+	}
 }
 }
 ?>

@@ -1,5 +1,5 @@
 <?PHP
-echo $data;
+print_r($data);
 ?>
 <h1 class="sectionedit1"><a name="nikhila_application_set" id="nikhila_application_set">Nikhila Application Set</a></h1>
 <div class="level1">

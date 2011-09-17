@@ -3,6 +3,7 @@ App::import('Sanitize');
 class SoftwareController extends AppController {
   var $name = 'Software';
   var $helpers = array('Html', 'Javascript', 'Ajax');
+  var $uses = array('Software','Softbundle');
   function beforeFilter()
   {
 	$this->Sanitize = new Sanitize();

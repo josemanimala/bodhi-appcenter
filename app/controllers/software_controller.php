@@ -11,7 +11,9 @@ class SoftwareController extends AppController {
 	
   }
   function softbundles() {
- 	
+ 	$id = $this->params['pass'][0];
+	$data = $this->Softbundle->find('all',array('conditions'=>'Softbundle.id='."'".$id."'"));
+	$this->set('data',$data);
   }
   function showL2()
   {

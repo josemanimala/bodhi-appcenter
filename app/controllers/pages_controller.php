@@ -52,7 +52,7 @@ class PagesController extends AppController {
  * @var array
  * @access public
  */
-	var $uses = array('Software','Softbundles');
+	var $uses = array('Software','Softbundle');
 
 	
 

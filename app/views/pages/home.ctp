@@ -8,21 +8,18 @@ Welcome to the Bodhi Linux software page. Here you will find easy to install sof
 <h2 class="sectionedit1"><a>Software bundles</a></h2> 
 <div class="level2"> 
  
-<p> 
+
 <?PHP  
 print_r($softbundle);
 foreach($softbundle as $var)
 {
-	echo $html->link($var['Softbundle']['bundleName'], array('controller' => 'software',      'action' => 'softbundles',$var['Softbundle']['id'])); ?><br/> 
+	echo "<p>";
+	echo $html->link($var['Softbundle']['bundleName'], array('controller' => 'software',      'action' => 'softbundles',$var['Softbundle']['id']));
+echo "<br/>";
 
-$var['Softbundle']['bundleShrtDesc'];
-</p> 
- 
-<p> 
-<?PHP  echo $html->link('Pratibha Application Set', array(     'controller' => 'software',      'action' => 'softbundles',2)); ?><br/> 
- 
-An Application Suite that focuses on packages that are light on resources but high on functionality.
-</p> 
+echo $var['Softbundle']['bundleShrtDesc']; ?>
+echo "</p>";
+ } ?>
  
 </div>
 <h2 class="sectionedit1"><a>Software Categories</a></h2> 

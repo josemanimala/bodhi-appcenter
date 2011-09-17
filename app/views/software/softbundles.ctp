@@ -1,8 +1,5 @@
 <?PHP
-print_r($data);
-
 echo $data[0]['Softbundle']['bundleDesc'];
-print_r($data);
 ?>
 
 <h2 class="sectionedit2"><a name="packages" id="packages">Packages</a></h2>
@@ -11,7 +8,7 @@ print_r($data);
 <p>
 <?PHP
 $list = explode(',',$data[0]['Softbundle']['softList']);
-
+print_r($list);
 foreach($list as $var)
 {
 $data1 = ClassRegistry::init('Software')->find('all',array('conditions'=>'Software.id='."'".$var."'",'fields'=>array('Software.softName','Software.softSubCat')));

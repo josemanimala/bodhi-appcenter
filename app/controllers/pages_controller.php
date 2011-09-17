@@ -75,6 +75,7 @@ class PagesController extends AppController {
 			$i++;
 		}
 		$this->set('software', $data);
+		$this->set('software', $data1);
 		$this->set('softcount', $i);
 		
 		$path = func_get_args();

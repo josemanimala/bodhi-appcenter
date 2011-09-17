@@ -1,38 +1,21 @@
 <?PHP
 print_r($data);
+
+echo $data[0]['Softbundle']['bundleDesc'];
 ?>
-<h1 class="sectionedit1"><a name="nikhila_application_set" id="nikhila_application_set">Nikhila Application Set</a></h1>
-<div class="level1">
-
-<p>
-
-Nikhila means “whole, entire, all, complete” in Sanskrit. In this spirit we bring you the Nikhila Application Set.
-</p>
-
-<p>
-This application suite provides functionality for just about every user need. These applications rival their commercial counterparts in features and ease of use. Bodhi has evaluated a group of packages that will meet most all of the average home user&#039;s needs, and packaged them together in one easy download installation.
-
-</p>
-
-<p>
-You can install all the Nikhila packages at once with the <span class="curid"><a href="/software/doku.php?id=nikhila_application_set#installation" class="wikilink1" title="nikhila_application_set">Installation</a></span> links at the bottom of the page.
-</p>
-
-<p>
-Or you can select programs individually from the list below.
-</p>
-
-<p>
-Total download size: 450M
-
-</p>
-
-</div>
 
 <h2 class="sectionedit2"><a name="packages" id="packages">Packages</a></h2>
 <div class="level2">
 
 <p>
+<?PHP
+$list = explode(',',$data[0]['Softbundle']['softList']);
+
+foreach($list as $var)
+{
+$data1 = ClassRegistry::init('Software')->find('all',array('conditions'=>'Software.id='."'".$var."'"));
+print_r($data1);
+?>
 * <a href="/software/doku.php?id=adobe_pdf_reader" class="wikilink1" title="adobe_pdf_reader"> Adobe</a> - <a href="/software/doku.php?id=pdf_reader" class="wikilink1" title="pdf_reader">PDF Reader</a><br/>
 
 * <a href="/software/doku.php?id=cheese" class="wikilink1" title="cheese">Cheese</a> - <a href="/software/doku.php?id=webcam" class="wikilink1" title="webcam">Webcam</a><br/>

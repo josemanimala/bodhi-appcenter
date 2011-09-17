@@ -8,12 +8,11 @@ echo $data[0]['Softbundle']['bundleDesc'];
 <p>
 <?PHP
 $list = explode(',',$data[0]['Softbundle']['softList']);
-print_r($list);
 foreach($list as $var)
 {
 $data1 = ClassRegistry::init('Software')->find('all',array('conditions'=>'Software.id='.$var,'fields'=>array('Software.softName','Software.softSubCat')));
 
-echo "*&nbsp;".$html->link(str_replace("_"," ",$data1[0]['Software']['softName']), array('controller' => 'software','action' => 'showDesc',$data1[0]['Software']['softName']))."-".$html->link(str_replace("_"," ",$data1[0]['Software']['softSubCat']), array('controller' => 'software','action' => 'showL2',$data1[0]['Software']['softSubCat']))."<br/>";
+echo "*&nbsp;".$html->link(str_replace("_"," ",$data1[0]['Software']['softName']), array('controller' => 'software','action' => 'showDesc',$data1[0]['Software']['softName']))."&nbsp;-&nbsp;".$html->link(str_replace("_"," ",$data1[0]['Software']['softSubCat']), array('controller' => 'software','action' => 'showL2',$data1[0]['Software']['softSubCat']))."<br/>";
 }
 ?>
 </p>

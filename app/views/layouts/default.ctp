@@ -41,13 +41,13 @@
 <link rel="alternate" type="text/html" title="Plain HTML" href="/software/doku.php?do=export_xhtml&amp;id=start" /> 
 <link rel="alternate" type="text/plain" title="Wiki Markup" href="/software/doku.php?do=export_raw&amp;id=start" /> 
 <link rel="canonical" href="http://www.bodhilinux.com/software/doku.php?id=start" /> 
-<link rel="stylesheet" media="screen" type="text/css" href="http://bodhilinux.com/software/lib/exe/css.php?t=incognitek_bodhi3&amp;tseed=1311262030" /> 
-<link rel="stylesheet" media="all" type="text/css" href="http://bodhilinux.com/software/lib/exe/css.php?s=all&amp;t=incognitek_bodhi3&amp;tseed=1311262030" /> 
-<link rel="stylesheet" media="print" type="text/css" href="http://bodhilinux.com/software/lib/exe/css.php?s=print&amp;t=incognitek_bodhi3&amp;tseed=1311262030" /> 
+<link rel="stylesheet" media="screen" type="text/css" href="/css/css1.css" /> 
+<link rel="stylesheet" media="all" type="text/css" href="/css/css2.css" /> 
+<link rel="stylesheet" media="print" type="text/css" href="/css/css3.css" /> 
 <script type="text/javascript" ><!--//--><![CDATA[//><!--
 var NS='';var JSINFO = {"id":"start","namespace":""};
 //--><!]]></script> 
-<script type="text/javascript" charset="utf-8" src="http://bodhilinux.com/software/lib/exe/js.php?tseed=1311262030" ></script> 
+<script type="text/javascript" charset="utf-8" src="/js/js1.js" ></script> 
 <script type="text/javascript" charset="utf-8" ><!--//--><![CDATA[//><!--
 jQuery.noConflict();
  

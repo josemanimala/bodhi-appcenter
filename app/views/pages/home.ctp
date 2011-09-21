@@ -10,6 +10,12 @@ Welcome to the Bodhi Linux software page. Here you will find easy to install sof
  
 
 <?PHP  
+
+#History
+#Show The Bodhi store first hack
+#Softbundles added
+#Completed Software list
+
 foreach($softbundle as $var)
 {
 	echo "<p>";
@@ -24,45 +30,62 @@ foreach($softbundle as $var)
 <h2 class="sectionedit1"><a>Software Categories</a></h2> 
 <div class="level2"> 
  
+
 <?PHP
+
+$bodhiStore = ClassRegistry::init('Software')->find('all',array('conditions'=>'Software.softCat=\'The_Bodhi_Store\''));
+
+echo '<h3 class="sectionedit4"><a>'.str_replace("_"," ",$bodhiStore[0]['Software']['softCat']).'</a></h3>';
+$count = ClassRegistry::init('Software')->find('count',array('conditions'=>'Software.softSubCat='."'".$bodhiStore[0]['Software']['softSubCat']."'"));
+echo '<div class="level3"> 
+						 <ul>';
+foreach($bodhiStore[0] as $var)
+{
+?>
+	<li class="level1">
+		<div class="li"> 
+			
+				<?PHP echo $html->link(str_replace("_"," ",$var['softSubCat']), array( 'controller' => 'software',      'action' => 'showL2',$var['softSubCat']))."&nbsp;(".$count.")"; ?>
+	</div> 
+	</li>
+<?PHP
+}
+echo '</ul></div>';
 $var="";
 foreach($software as $var)
-{ ?>
+{ 
+if( $var!= 'The_Bodhi_Store')
+{?>
 <h3 class="sectionedit4"><a><?PHP echo str_replace("_"," ",$var); ?></a></h3> 
 <?PHP
+}
 	
 	for($i=0;$i<$softcount;$i++)
 	{ 
-		$flag=0;
-		$cntr = count(${'w00t' . $i});
-		?>
-		<?PHP
-		if($flag<1)
-		{	
-				echo '<div class="level3"> 
-				     <ul>';
-		}
 		foreach(${'w00t' . $i} as $w01t)
 		{
-		if($w01t['Software']['softCat'] == $var)
-		{ 
-			$count = ClassRegistry::init('Software')->find('count',array('conditions'=>'Software.softSubCat='."'".$w01t['Software']['softSubCat']."'"));
+			if($w01t['Software']['softCat'] == $var and $w01t['Software']['softCat'] != 'The_Bodhi_Store')
+			{
+			echo '<div class="level3"> 
+						 <ul>';
+			}
+			if($w01t['Software']['softCat'] == $var and $w01t['Software']['softCat'] != 'The_Bodhi_Store')
+			{ 
+				$count = ClassRegistry::init('Software')->find('count',array('conditions'=>'Software.softSubCat='."'".$w01t['Software']['softSubCat']."'"));
 		?> 
-		<li class="level1">
-		<div class="li"> 
-		
-			<?PHP echo $html->link(str_replace("_"," ",$w01t['Software']['softSubCat']), array( 'controller' => 'software',      'action' => 'showL2',$w01t['Software']['softSubCat']))."&nbsp;(".$count.")"; ?>
-		</div> 
-		</li> 
+			<li class="level1">
+			<div class="li"> 
+			
+				<?PHP echo $html->link(str_replace("_"," ",$w01t['Software']['softSubCat']), array( 'controller' => 'software',      'action' => 'showL2',$w01t['Software']['softSubCat']))."&nbsp;(".$count.")"; ?>
+			</div> 
+			</li> 
 		
 	<?PHP 	}
-	}
-		if($flag<$cntr)
-		{
-			echo '</ul>
-			    </div>';
+			if($w01t['Software']['softCat'] == $var and $w01t['Software']['softCat'] != 'The_Bodhi_Store')
+			{
+				echo '</ul></div>';
+			}
 		}
-		$flag++;
 		?>
 		
 	<?PHP

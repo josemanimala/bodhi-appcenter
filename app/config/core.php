@@ -246,7 +246,7 @@
 *
 **/
 
-Configure::write('Appcenter.build','Build Type: Incremental Build Name: BossyDame');
+Configure::write('Appcenter.build','Build: Stable 0.1');
 Configure::write('Appcenter.year','2011');
 Configure::write('Appcenter.copyright','(c) Bodhilinux Web Team');
 /**

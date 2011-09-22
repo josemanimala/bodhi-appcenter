@@ -33,7 +33,7 @@
  * In production mode, flash messages redirect after a time interval.
  * In development mode, you need to click the flash message to continue.
  */
-	Configure::write('debug', 0);
+	Configure::write('debug', 2);
 
 /**
  * CakePHP Log Level:
@@ -246,7 +246,7 @@
 *
 **/
 
-Configure::write('Appcenter.build','Build: Stable 0.1');
+Configure::write('Appcenter.build','Build: Incremental BossyDave');
 Configure::write('Appcenter.year','2011');
 Configure::write('Appcenter.copyright','(c) Bodhilinux Web Team');
 /**

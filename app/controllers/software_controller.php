@@ -12,7 +12,7 @@ class SoftwareController extends AppController {
 	
   }
   function softbundles() {
-	if (!empty($this->params['pass'][0])
+	if (!empty($this->params['pass'][0]))
 	{
 	 	$id = $this->params['pass'][0];
 		$data = $this->Softbundle->find('all',array('conditions'=>'Softbundle.id='."'".$id."'"));
@@ -25,7 +25,7 @@ class SoftwareController extends AppController {
 }
   function showL2()
   {
-	if (!empty($this->params['pass'][0])
+	if (!empty($this->params['pass'][0]))
 	{
 		$params = $this->params['pass'];
 		$softSubCat= $params[0];
@@ -40,7 +40,7 @@ class SoftwareController extends AppController {
   }
   function showDesc()
   {
-	if (!empty($this->params['pass'][0])
+	if (!empty($this->params['pass'][0]))
 	{
 		$params = $this->params['pass'];
 		$softName= $params[0];

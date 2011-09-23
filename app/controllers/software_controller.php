@@ -20,7 +20,7 @@ class SoftwareController extends AppController {
 	}
 	else
 	{
-			    $this->cakeError('oopsError', array('page'=>'softbundles'));
+			    $this->cakeError('oopsError', array('page'=>'softbundles'.$id));
 	}
   }
   function showL2()
@@ -35,7 +35,7 @@ class SoftwareController extends AppController {
 	}
 	else
 	{
-			    $this->cakeError('oopsError', array('page'=>'showL2'));
+			    $this->cakeError('oopsError', array('page'=>'showL2'.$softSubCat));
 	}
   }
   function showDesc()
@@ -49,7 +49,7 @@ class SoftwareController extends AppController {
 	}
 	else
 	{
-			    $this->cakeError('oopsError', array('page'=>'showDesc'));
+			    $this->cakeError('oopsError', array('page'=>'showDesc'.$softName));
 	}
   }
   function search() {

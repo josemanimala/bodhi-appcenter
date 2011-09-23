@@ -14,7 +14,14 @@ class SoftwareController extends AppController {
   function softbundles() {
  	$id = $this->params['pass'][0];
 	$data = $this->Softbundle->find('all',array('conditions'=>'Softbundle.id='."'".$id."'"));
-	$this->set('data',$data);
+	if(!empty($data))
+	{
+		$this->set('data',$data);
+	}
+	else
+	{
+			    $this->cakeError('oopsError', array('page'=>'showL2'));
+	}
   }
   function showL2()
   {
@@ -37,7 +44,14 @@ class SoftwareController extends AppController {
 	$params = $this->params['pass'];
 	$softName= $params[0];
 	$data = $this->Software->find('all',array('conditions'=>'Software.softName='."'".$softName."'"));
-	$this->set('data',$data);
+	if(!empty($data))
+	{
+		$this->set('data',$data);
+	}
+	else
+	{
+			    $this->cakeError('oopsError', array('page'=>'showL2'));
+	}
   }
   function search() {
 	if (!empty($this->data['Software']['search']))

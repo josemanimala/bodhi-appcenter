@@ -20,7 +20,7 @@ class SoftwareController extends AppController {
 	}
 	else
 	{
-			    $this->cakeError('oopsError', array('page'=>'showL2'));
+			    $this->cakeError('oopsError', array('page'=>'softbundles'));
 	}
   }
   function showL2()
@@ -49,7 +49,7 @@ class SoftwareController extends AppController {
 	}
 	else
 	{
-			    $this->cakeError('oopsError', array('page'=>'showL2'));
+			    $this->cakeError('oopsError', array('page'=>'showDesc'));
 	}
   }
   function search() {

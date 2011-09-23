@@ -21,10 +21,8 @@ class SoftwareController extends AppController {
 	$params = $this->params['pass'];
 	$softSubCat= $params[0];
 	$data = $this->Software->find('all',array('conditions'=>'Software.softSubCat='."'".$softSubCat."'",'order'=>array('Software.softName ASC'),'fields' => array('Software.softName')));
-	if(empty($data[0]['Software']['softName']));
-	{
+	print_r($data);
 		    $this->cakeError('oopsError', array('page'=>'showL2'));
-	}
 	$this->set('data',$data);
 	$this->set('softSubCat',$softSubCat);
   }

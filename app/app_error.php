@@ -1,3 +1,4 @@
+<?PHP
 class AppError extends ErrorHandler {
  
     function oopsError($params) {
@@ -6,3 +7,4 @@ class AppError extends ErrorHandler {
     }
  
 }
+?>

@@ -40,16 +40,18 @@ $count = ClassRegistry::init('Software')->find('count',array('conditions'=>'Soft
 
 echo '<div class="level3"> 
 						 <ul>';
+$i=0;
 foreach($bodhiStore as $var)
 {
 ?>
 	<li class="level1">
 		<div class="li"> 
 			
-				<?PHP echo $html->link(str_replace("_"," ",$var['softSubCat']), array( 'controller' => 'software',      'action' => 'showL2',$var['softSubCat']))."&nbsp;(".$count.")"; ?>
+				<?PHP echo $html->link(str_replace("_"," ",$var[$i]['softSubCat']), array( 'controller' => 'software',      'action' => 'showL2',$var[$i]['softSubCat']))."&nbsp;(".$count.")"; ?>
 	</div> 
 	</li>
 <?PHP
+$i++;
 }
 echo '</ul></div>';
 $var="";

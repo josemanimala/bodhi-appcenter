@@ -11,7 +11,7 @@ echo $data[0]['Software']['softDesc'];
 </p> 
  
 <p> 
-<font size='3' color='black'>Download size:</font> <?PHP 
+<font size='3' color='black'><b>Download size:</b></font> <?PHP 
 echo $data[0]['Software']['softSize']; 
 ?>
  

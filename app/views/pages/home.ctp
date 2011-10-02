@@ -33,26 +33,42 @@ foreach($softbundle as $var)
 
 <?PHP
 
-$bodhiStore = ClassRegistry::init('Software')->find('all',array('conditions'=>array("OR" => array("Software.softCat='Bodhi_Service_Packs'","Software.softCat='The_Bodhi_Store'"))));
+$bodhiStore = ClassRegistry::init('Software')->find('all',array('conditions'=>'Software.softCat=\'The_Bodhi_Store\''));
 
 echo '<h3 class="sectionedit4"><a>'.str_replace("_"," ",$bodhiStore[0]['Software']['softCat']).'</a></h3>';
 $count = ClassRegistry::init('Software')->find('count',array('conditions'=>'Software.softSubCat='."'".$bodhiStore[0]['Software']['softSubCat']."'"));
-
 echo '<div class="level3"> 
 						 <ul>';
-$i=0;
-foreach($bodhiStore as $var)
+foreach($bodhiStore[0] as $var)
 {
 ?>
 	<li class="level1">
 		<div class="li"> 
 			
-				<?PHP echo $html->link(str_replace("_"," ",$var[$i]['softSubCat']), array( 'controller' => 'software',      'action' => 'showL2',$var[$i]['softSubCat']))."&nbsp;(".$count.")"; ?>
+				<?PHP echo $html->link(str_replace("_"," ",$var['softSubCat']), array( 'controller' => 'software',      'action' => 'showL2',$var['softSubCat']))."&nbsp;(".$count.")"; ?>
 	</div> 
 	</li>
 <?PHP
-$i++;
 }
+
+$bodhiSP = ClassRegistry::init('Software')->find('all',array('conditions'=>'Software.softCat=\'Bodhi_Servce_Packs\''));
+
+echo '<h3 class="sectionedit4"><a>'.str_replace("_"," ",$bodhiSP[0]['Software']['softCat']).'</a></h3>';
+$count = ClassRegistry::init('Software')->find('count',array('conditions'=>'Software.softSubCat='."'".$bodhiSP[0]['Software']['softSubCat']."'"));
+echo '<div class="level3"> 
+						 <ul>';
+foreach($bodhiSP[0] as $var)
+{
+?>
+	<li class="level1">
+		<div class="li"> 
+			
+				<?PHP echo $html->link(str_replace("_"," ",$var['softSubCat']), array( 'controller' => 'software',      'action' => 'showL2',$var['softSubCat']))."&nbsp;(".$count.")"; ?>
+	</div> 
+	</li>
+<?PHP
+}
+
 echo '</ul></div>';
 $var="";
 foreach($software as $var)

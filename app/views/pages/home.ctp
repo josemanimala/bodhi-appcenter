@@ -37,7 +37,7 @@ $bodhiStore = ClassRegistry::init('Software')->find('all',array('conditions'=>ar
 
 echo '<h3 class="sectionedit4"><a>'.str_replace("_"," ",$bodhiStore[0]['Software']['softCat']).'</a></h3>';
 $count = ClassRegistry::init('Software')->find('count',array('conditions'=>'Software.softSubCat='."'".$bodhiStore[0]['Software']['softSubCat']."'"));
-print_r($bodhiStore);
+
 echo '<div class="level3"> 
 						 <ul>';
 foreach($bodhiStore as $var)

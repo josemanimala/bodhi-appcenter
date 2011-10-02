@@ -33,7 +33,7 @@ foreach($softbundle as $var)
 
 <?PHP
 
-$bodhiStore = ClassRegistry::init('Software')->find('all',array('conditions'=>array("Software.softCat='The_Bodhi_Store'","OR" => array("Software.softCat='Bodhi_Service_Packs'"))));
+$bodhiStore = ClassRegistry::init('Software')->find('all',array('conditions'=>array("OR" => array("Software.softCat='Bodhi_Service_Packs'"),"Software.softCat='The_Bodhi_Store'")));
 
 echo '<h3 class="sectionedit4"><a>'.str_replace("_"," ",$bodhiStore[0]['Software']['softCat']).'</a></h3>';
 $count = ClassRegistry::init('Software')->find('count',array('conditions'=>'Software.softSubCat='."'".$bodhiStore[0]['Software']['softSubCat']."'"));

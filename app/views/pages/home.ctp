@@ -50,8 +50,8 @@ foreach($bodhiStore[0] as $var)
 	</li>
 <?PHP
 }
-
-$bodhiSP = ClassRegistry::init('Software')->find('all',array('conditions'=>'Software.softCat=\'Bodhi_Servce_Packs\''));
+#service pack position hack
+$bodhiSP = ClassRegistry::init('Software')->find('all',array('conditions'=>'Software.softCat=\'Bodhi_Service_Packs\''));
 
 echo '<h3 class="sectionedit4"><a>'.str_replace("_"," ",$bodhiSP[0]['Software']['softCat']).'</a></h3>';
 $count = ClassRegistry::init('Software')->find('count',array('conditions'=>'Software.softSubCat='."'".$bodhiSP[0]['Software']['softSubCat']."'"));
@@ -73,7 +73,7 @@ echo '</ul></div>';
 $var="";
 foreach($software as $var)
 { 
-if( $var!= 'The_Bodhi_Store')
+if( $var!= 'The_Bodhi_Store' && $var!= 'Bodhi_Service_Packs')
 {?>
 <h3 class="sectionedit4"><a><?PHP echo str_replace("_"," ",$var); ?></a></h3> 
 <?PHP

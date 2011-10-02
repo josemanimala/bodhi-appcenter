@@ -40,7 +40,7 @@ $count = ClassRegistry::init('Software')->find('count',array('conditions'=>'Soft
 print_r($bodhiStore);
 echo '<div class="level3"> 
 						 <ul>';
-foreach($bodhiStore[0] as $var)
+foreach($bodhiStore as $var)
 {
 ?>
 	<li class="level1">

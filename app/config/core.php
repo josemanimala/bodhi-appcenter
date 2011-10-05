@@ -246,7 +246,7 @@
 *
 **/
 
-Configure::write('Appcenter.build','Build: Stable 0.1.2-530389d');
+Configure::write('Appcenter.build','Build: Stable 0.1.2-facd814');
 Configure::write('Appcenter.year','2011');
 Configure::write('Appcenter.copyright','(c) Bodhilinux Web Team');
 /**

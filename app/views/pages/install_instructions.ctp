@@ -54,7 +54,7 @@ Once you have downloaded the .bod file you want (make sure you note where you do
 
 <p>
 
-<img src="/img/gui-install1.png" class="media" alt="" width="300" />
+<img src="/img/gui_install1.png" class="media" alt="" width="300" />
 </p>
 
 <p>
@@ -63,7 +63,7 @@ Open <strong>PCManFM</strong> (the default file manager in <strong>Bodhi Linux</
 </p>
 
 <p>
-<img src="/img/gui-install2.png" class="media" alt="" width="300" />
+<img src="/img/gui_install2.png" class="media" alt="" width="300" />
 </p>
 
 <p>
@@ -71,7 +71,7 @@ Under the Permissions tab tick the box <em>Make the file executable</em> then cl
 </p>
 
 <p>
-<img src="/img/gui-install3.png" class="media" alt="" width="300" />
+<img src="/img/gui_install3.png" class="media" alt="" width="300" />
 
 </p>
 

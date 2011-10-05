@@ -7,7 +7,7 @@
 <div class="level2">
 
 <p>
-<img src="http%3A%2F%2Fwww.bodhilinux.com%2Fimages%2Finstallnow.png" class="medialeft" align="left" alt="" /><strong>NOTE</strong> This feature relies on “apt:url” to function. As such the <strong>only</strong> supported browsers are <strong>Midori</strong> and <strong>Firefox</strong>. Other browsers can still install software via the Download method.
+<img src="http://www.bodhilinux.com/images/installnow.png" class="medialeft" align="left" alt="" /><strong>NOTE</strong> This feature relies on “apt:url” to function. As such the <strong>only</strong> supported browsers are <strong>Midori</strong> and <strong>Firefox</strong>. Other browsers can still install software via the Download method.
 </p>
 
 <p>
@@ -39,7 +39,7 @@ The <strong>FAST INSTALL</strong> text link below the buttons will allow you to 
 <div class="level2">
 
 <p>
-<img src="http%3A%2F%2Fwww.bodhilinux.com%2Fimages%2Fdownloadoffline.png" class="medialeft" align="left" alt="" />This method offers more flexibility (it will work with any browser) but also requires just a few more steps. Also, this method will allow installation at a later time and/or the ability to move the installer to another machine (on a USB stick for example). 
+<img src="http://www.bodhilinux.com/images/downloadoffline.png" class="medialeft" align="left" alt="" />This method offers more flexibility (it will work with any browser) but also requires just a few more steps. Also, this method will allow installation at a later time and/or the ability to move the installer to another machine (on a USB stick for example). 
 </p>
 
 <p>

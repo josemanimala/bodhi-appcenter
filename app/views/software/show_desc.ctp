@@ -23,7 +23,7 @@ echo $data[0]['Software']['softSize'];
 <div class="level2"> 
  
 <p> 
-Please see the <a href="/software/doku.php?id=installation_instructions" class="wikilink1" title="installation_instructions">Installation Instructions</a> for further information.
+Please see the <a href="/pages/install_instructions" class="wikilink1" title="installation_instructions">Installation Instructions</a> for further information.
 </p> 
  
 <p> 

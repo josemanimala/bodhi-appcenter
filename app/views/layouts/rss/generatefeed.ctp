@@ -1,6 +1,6 @@
 <?php
 function rss_transform($item) {
-	return array('title' => $item['Software']['softName'],
+	return array('title' => str_replace("_"," ",$item['Software']['softName']),
 		'link' => array('controller' => 'software', 'action' => 'showDesc', $item['Software']['softName']),
 		'guid' => array('controller' => 'software', 'action' => 'showDesc', $item['Software']['softName']),
 		'description' => $item['Software']['softDesc'],

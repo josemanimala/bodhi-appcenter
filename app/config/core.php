@@ -48,7 +48,7 @@
  *    Configure::write('log', E_ERROR | E_WARNING);
  *    Configure::write('log', E_ALL ^ E_NOTICE);
  */
-	Configure::write('log', true);
+	Configure::write('log', false);
 
 /**
  * Application wide charset encoding
@@ -108,7 +108,7 @@
  * Defines the default error type when using the log() function. Used for
  * differentiating error logging and debugging. Currently PHP supports LOG_DEBUG.
  */
-	define('LOG_ERROR', 2);
+	define('LOG_ERROR', 0);
 
 /**
  * The preferred session handling method. Valid values:
@@ -246,7 +246,11 @@
 *
 **/
 
+<<<<<<< HEAD
 Configure::write('Appcenter.build','Build: Incremental BossyDave');
+=======
+Configure::write('Appcenter.build','Build: Stable 0.1.2-facd814');
+>>>>>>> 5cf4764c439d9f92f51dfc10608efad5658b75fb
 Configure::write('Appcenter.year','2011');
 Configure::write('Appcenter.copyright','(c) Bodhilinux Web Team');
 /**

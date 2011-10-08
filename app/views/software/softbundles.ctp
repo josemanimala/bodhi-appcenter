@@ -38,7 +38,7 @@ echo "*&nbsp;".$html->link(str_replace("_"," ",$data1[0]['Software']['softName']
 </p>
 
 <p>
-Please see the <strong><a href="/software/doku.php?id=installation_instructions" class="wikilink1" title="installation_instructions">Installation Instructions</a></strong> for further information.
+Please see the <strong><a href="/pages/install_instructions" class="wikilink1" title="installation_instructions">Installation Instructions</a></strong> for further information.
 
 </p>
 

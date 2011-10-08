@@ -11,7 +11,7 @@ echo $data[0]['Software']['softDesc'];
 </p> 
  
 <p> 
-Download size: <?PHP 
+<h4>Download size:</h4><?PHP 
 echo $data[0]['Software']['softSize']; 
 ?>
  
@@ -23,7 +23,7 @@ echo $data[0]['Software']['softSize'];
 <div class="level2"> 
  
 <p> 
-Please see the <a href="/software/doku.php?id=installation_instructions" class="wikilink1" title="installation_instructions">Installation Instructions</a> for further information.
+Please see the <a href="/pages/install_instructions" class="wikilink1" title="installation_instructions">Installation Instructions</a> for further information.
 </p> 
  
 <p> 
@@ -37,8 +37,16 @@ The <strong>Download</strong> button is to download and transfer the package to 
 <p> 
  
 <table width="35%"> 
-<tr><td align="center"><a href="<?PHP echo $data[0]['Software']['softApt'].'?refresh=yep';?>"><img src="http://www.bodhilinux.com/images/installnow.png" border="0"></a></td> 
- 
+
+<tr>
+<?PHP
+if($data[0]['Software']['softApt']!="")
+{
+?>
+<td align="center"><a href="<?PHP echo $data[0]['Software']['softApt'].'?refresh=yep';?>"><img src="http://www.bodhilinux.com/images/installnow.png" border="0"></a></td> 
+<?PHP
+}
+?>
 <td align="center"><a href="<?PHP echo $data[0]['Software']['softDown'];?>"><img src="http://www.bodhilinux.com/images/downloadoffline.png" border="0"></a> 
  
 </td></tr> 

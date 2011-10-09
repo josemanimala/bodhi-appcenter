@@ -367,7 +367,7 @@ html[xmlns] #nav {
 </div>     
 </div>     
 </div>
-<div id='rssimage' align='left'>
+<div id='rssimage' align='right'>
 <a href='/software/feed.rss' title='Software update RSS feed'><img src='/img/rss.png' /></a>
 </div>
 <div id='searchBar' align='right'>

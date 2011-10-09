@@ -56,7 +56,8 @@ if($data[0]['Software']['softApt']!="")
  
 </td></tr> 
 </table> 
- <strong><a href="<?PHP echo $data[0]['Software']['softApt']?>">FAST INSTALL</a></strong> bypasses the apt-get update done with the "Install Now" button and can <strong><u>NOT</u></strong> be used with a fresh installation.
+ <strong><a href="<?PHP echo $data[0]['Software']['softApt']?>">FAST INSTALL</a></strong> bypasses the apt-get update done with the "Install Now" button and can <strong><u>NOT</u></strong> be used with a fresh installation. <br />
+Please note: The download size will vary for install now method.
 </p> 
  
 </div> 

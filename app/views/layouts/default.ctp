@@ -367,6 +367,9 @@ html[xmlns] #nav {
 </div>     
 </div>     
 </div>
+<div id='rssimage' align='left'>
+<a href='/software/feed.rss' title='Software update RSS feed'><img src='/img/rss.png' /></a>
+</div>
 <div id='searchBar' align='right'>
 <?php echo $form->create('Software',array('url' => '/software/searchPost')); ?>
 <?php 
@@ -375,9 +378,6 @@ echo $ajax->autoComplete('Software.search', '/software/search')?>
 <?php echo $form->end()?>
 <div id='view' class='auto_complete'>
 </div>
-</div>
-<div id='rssimage' align='right'>
-<a href='/software/feed.rss'><img src='/img/rss.png' /></a>
 </div>
 <div class="page"> 
 

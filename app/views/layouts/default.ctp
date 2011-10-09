@@ -372,7 +372,7 @@ html[xmlns] #nav {
 echo '<span align="right"><font color="black" size="4">Search for software:&nbsp;</font></span>';
 echo $ajax->autoComplete('Software.search', '/software/search')?>
 <?php echo $form->end()?>
-<a href='/software/feed.rss' title='Software update RSS feed'><img src='/img/rss.png' height='28' width='28' /></a>
+|RSS: <a href='/software/feed.rss' title='Software update RSS feed'><img src='/img/rss.png' height='28' width='28' /></a>
 <div id='view' class='auto_complete'>
 </div>
 </div>

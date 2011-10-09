@@ -317,7 +317,7 @@ html[xmlns] #nav {
 <a href="/"  accesskey="h" title="[ALT+H]"><img src="http://bodhilinux.com/software/lib/tpl/incognitek_bodhi3/images/weblogo.png" alt="Bodhi Appcenter" /></a></div> 
 <ul id="nav"> 
 <li><a href="http://www.bodhilinux.com/index.php">Home</a></li> 
- 
+<li><a href='/software/feed.rss' title='Software update RSS feed'><img src='/img/rss.png' height='28' width='28' /></a></li> 
 <li><a href="#">Documentation</a> 
 <ul> 
 <li><a href="http://www.bodhilinux.com/wiki">Document Wiki</a></li> 
@@ -372,7 +372,6 @@ html[xmlns] #nav {
 echo '<span align="right"><font color="black" size="4">Search for software:&nbsp;</font></span>';
 echo $ajax->autoComplete('Software.search', '/software/search')?>
 <?php echo $form->end()?>
-<a href='/software/feed.rss' title='Software update RSS feed'><img src='/img/rss.png' height='28' width='28' /></a>
 <div id='view' class='auto_complete'>
 </div>
 </div>

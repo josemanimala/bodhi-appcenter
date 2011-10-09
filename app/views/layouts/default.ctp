@@ -376,6 +376,9 @@ echo $ajax->autoComplete('Software.search', '/software/search')?>
 <div id='view' class='auto_complete'>
 </div>
 </div>
+<div id='rssimage' align='right'>
+<a href='/software/feed.rss'><img src='/img/rss.png' /></a>
+</div>
 <div class="page"> 
 
 			<?php echo $this->Session->flash(); ?>

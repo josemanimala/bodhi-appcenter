@@ -14,9 +14,14 @@ echo $data[0]['Software']['softDesc'];
 <h4>Download size:</h4><?PHP 
 echo $data[0]['Software']['softSize']; 
 ?>
- 
 </p> 
- 
+
+<p> 
+<h4>md5 checksum:</h4><?PHP 
+echo $data[0]['Software']['md5']; 
+?> 
+</p>  
+
 </div> 
  
 <h2 class="sectionedit3"><a name="installation" id="installation">Installation</a></h2> 

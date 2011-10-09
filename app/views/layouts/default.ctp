@@ -368,7 +368,7 @@ html[xmlns] #nav {
 </div>     
 </div>
 <div id='searchBar' align='right'>
-<a href='/software/feed.rss' title='Software update RSS feed'><img src='/img/rss.png' /></a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href='/software/feed.rss' title='Software update RSS feed'><img src='/img/rss.png' height='28' width='28' /></a>&nbsp;&nbsp;&nbsp;&nbsp;
 <?php echo $form->create('Software',array('url' => '/software/searchPost')); ?>
 <?php 
 echo '<span align="right"><font color="black" size="4">Search for software:&nbsp;</font></span>';

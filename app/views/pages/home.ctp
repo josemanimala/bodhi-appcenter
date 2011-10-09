@@ -83,12 +83,12 @@ if( $var!= 'The_Bodhi_Store' && $var!= 'Bodhi_Service_Packs')
 	{ 
 		foreach(${'w00t' . $i} as $w01t)
 		{
-			if($w01t['Software']['softCat'] == $var and $w01t['Software']['softCat'] != 'The_Bodhi_Store')
+			if($w01t['Software']['softCat'] == $var and $w01t['Software']['softCat'] != 'The_Bodhi_Store' and $w01t['Software']['softCat'] != 'Bodhi_Service_Packs')
 			{
 			echo '<div class="level3"> 
 						 <ul>';
 			}
-			if($w01t['Software']['softCat'] == $var and $w01t['Software']['softCat'] != 'The_Bodhi_Store')
+			if($w01t['Software']['softCat'] == $var and $w01t['Software']['softCat'] != 'The_Bodhi_Store' and $w01t['Software']['softCat'] != 'Bodhi_Service_Packs')
 			{ 
 				$count = ClassRegistry::init('Software')->find('count',array('conditions'=>'Software.softSubCat='."'".$w01t['Software']['softSubCat']."'"));
 		?> 

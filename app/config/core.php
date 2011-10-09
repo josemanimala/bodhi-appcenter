@@ -246,15 +246,7 @@
 *
 **/
 
-<<<<<<< HEAD
 Configure::write('Appcenter.build','Build: Stable 0.1.3-2a2fe16');
-=======
-<<<<<<< HEAD
-Configure::write('Appcenter.build','Build: Incremental BossyDave');
-=======
-Configure::write('Appcenter.build','Build: Stable 0.1.2-facd814');
->>>>>>> 5cf4764c439d9f92f51dfc10608efad5658b75fb
->>>>>>> b2fed22c8f8892e9728f3ba5b1bfa2d898372a65
 Configure::write('Appcenter.year','2011');
 Configure::write('Appcenter.copyright','(c) Bodhilinux Web Team');
 /**

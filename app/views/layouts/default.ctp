@@ -22,7 +22,6 @@
  lang="en" dir="ltr"> 
 <head> 
 <link href='http://fonts.googleapis.com/css?family=Ubuntu&v2' rel='stylesheet' type='text/css'> 
-<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.3.0/build/cssreset/reset-min.css" /> 
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
   <title> 
 		<?php echo "Bodhi Appcenter"; ?>

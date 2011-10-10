@@ -24,7 +24,7 @@
 <link href='http://fonts.googleapis.com/css?family=Ubuntu&v2' rel='stylesheet' type='text/css'> 
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
   <title> 
-		<?php echo "Bodhi Appcenter"; ?>
+		<?php echo "Bodhi AppCenter"; ?>
   </title> 
 	
 <link rel="shortcut icon" href="http://bodhilinux.com/software/lib/tpl/incognitek_bodhi3/images/favicon.ico.png" /> 

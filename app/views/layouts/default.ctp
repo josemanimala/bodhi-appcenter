@@ -331,7 +331,7 @@ html[xmlns] #nav {
 <li><a href="http://webchat.freenode.net/?channels=bodhilinux">IRC WEB Chat</a></li> 
 <li><a href="http://forums.bodhilinux.com/">Forum</a></li> 
 <li><a href="http://appcenter.bodhilinux.com/">AppCenter</a></li> 
- 
+<li><a href="http://www.facebook.com/bodhilinux" target="_blank">Bodhi on Facebook</a></li> 
 </ul> 
 </li> 
  

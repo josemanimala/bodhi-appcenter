@@ -1,7 +1,8 @@
 <?php
 function rss_transform($item) {
 	App::import('Sanitize');
-	return array('title' => $item['Software']['solftName'],
+	$title = str_replace("_"," ",$item['Software']['softName']);
+	return array('title' => $title,
 		'link' => '/software/feed.rss',
 		'guid' => '/software/feed.rss',
 		'description' => Sanitize::stripAll($item['Software']['softDesc']),

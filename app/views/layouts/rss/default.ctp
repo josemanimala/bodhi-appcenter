@@ -1,9 +1,10 @@
 <?php header('Content-type: text/xml'); ?>
-<?php echo $rss->header();
+<?php
+echo $rss->header();
 $channelData = array('title' => 'Bodhilinux Software Updates',
-		 'link' => '/software/feed.rss',
-		 'url' => '/software/feed.rss',
-		 'description' => 'Bodhilinux Software Updates feed',
+		 'link' => array('controller' => 'software', 'action' => 'feed', 'ext' => 'rss'),
+		 'url' => array('controller' => 'software', 'action' => 'feed', 'ext' => 'rss'),
+		 'description' => 'Bodhilinux Software Updates feed!',
 		 'language' => 'en-us'
 		 );
 $channel = $rss->channel(array(), $channelData, $items);

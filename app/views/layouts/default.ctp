@@ -313,7 +313,7 @@ html[xmlns] #nav {
 </style>
 <div class="menu"> 
 <div id="bologo"> 
-<a href="/"  accesskey="h" title="[ALT+H]"><img src="http://bodhilinux.com/software/lib/tpl/incognitek_bodhi3/images/weblogo.png" alt="Bodhi Appcenter" /></a></div> 
+<a href="/"  accesskey="h" title="[ALT+H]"><img src="http://bodhilinux.com/images/logo.png" alt="Bodhi Appcenter" /></a></div> 
 <ul id="nav"> 
 <li><a href="http://www.bodhilinux.com/index.php">Home</a></li> 
  
@@ -329,8 +329,8 @@ html[xmlns] #nav {
 <ul> 
 <li><a href="http://art.bodhilinux.com/">Art Wiki</a></li> 
 <li><a href="http://webchat.freenode.net/?channels=bodhilinux">IRC WEB Chat</a></li> 
-<li><a href="http://www.bodhilinux.com/forums">Forum</a></li> 
-<li><a href="http://software.bodhilinux.com/">Software Wiki</a></li> 
+<li><a href="http://forums.bodhilinux.com/">Forum</a></li> 
+<li><a href="http://appcenter.bodhilinux.com/">AppCenter</a></li> 
  
 </ul> 
 </li> 

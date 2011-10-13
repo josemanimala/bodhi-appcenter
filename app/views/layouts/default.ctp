@@ -313,7 +313,7 @@ html[xmlns] #nav {
 </style>
 <div class="menu"> 
 <div id="bologo"> 
-<a href="/"  accesskey="h" title="[ALT+H]"><img src="http://bodhilinux.com/images/logo.png" alt="Bodhi Appcenter" /></a></div> 
+<a href="/"  accesskey="h" title="[ALT+H]"><img src="http://www.bodhilinux.com/images/logo.png" alt="Bodhi Appcenter" /></a></div> 
 <ul id="nav"> 
 <li><a href="http://www.bodhilinux.com/index.php">Home</a></li> 
  

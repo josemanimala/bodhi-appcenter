@@ -4,7 +4,7 @@ class SoftwareController extends AppController {
   var $name = 'Software';
   var $helpers = array('Html', 'Javascript', 'Ajax','Rss');
   var $uses = array('Software','Softbundle');
-    var $components = array('RequestHandler');
+  var $components = array('RequestHandler');
   function beforeFilter()
   {
 	$this->Sanitize = new Sanitize();

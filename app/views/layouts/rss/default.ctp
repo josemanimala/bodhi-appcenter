@@ -1,3 +1,4 @@
+ob_end_clean();
 <?php header('Content-type: text/xml'); ?>
 <?php echo $rss->header();
 $channelData = array('title' => 'Bodhilinux Software Updates',

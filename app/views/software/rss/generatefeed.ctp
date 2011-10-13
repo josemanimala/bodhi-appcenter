@@ -10,5 +10,4 @@ function rss_transform($item) {
 }
 $this->set('items', $rss->items($software, 'rss_transform'));
 $this->set('channelData', $channelData);
-ob_start();
 ?>

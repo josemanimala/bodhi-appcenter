@@ -9,7 +9,6 @@ function rss_transform($item) {
 		'pubDate' => $item['Software']['entry_date'],				
 	);
 }
- 
 $this->set('items', $rss->items($software, 'rss_transform'));
 $this->set('channelData', $channelData);
 ?>

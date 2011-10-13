@@ -78,6 +78,7 @@ function searchPost()
 	}
 	}
 }
+
 function generatefeed(){
 
 	$software = $this->Software->find('all',array('order'=>array('Software.entry_date DESC'),'limit' => 20));

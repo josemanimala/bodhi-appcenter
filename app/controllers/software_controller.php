@@ -85,7 +85,7 @@ function generatefeed(){
 	if(isset($this->params['requested'])) {
                          return $software;
                  }
-                 $this->set('software',$software );
+        $this->set('software',$software );
 
 }
 }

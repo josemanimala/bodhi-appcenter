@@ -86,7 +86,6 @@ function generatefeed(){
                          return $software;
                  }
         $this->set('software',$software );
-
 }
 }
 ?>

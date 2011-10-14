@@ -1,3 +1,4 @@
+<?PHP print_r($simSoft); ?>
 <h1 class="sectionedit1"><a><?PHP echo str_replace("_"," ",$data[0]['Software']['softName']);?></a></h1> 
 <div class="level1"> 
 <p> 
@@ -66,7 +67,6 @@ if($data[0]['Software']['softApt']!="")
 <div class="level2"> 
 <p>
 <?PHP
-$list = ClassRegistry::init('Software')->find('all',array('conditions'=>'Software.softSubCat='."'".$data[0]['Software']['softSubCat']."'",'fields'=>array('Software.softName')));
 foreach($list as $var)
 {
 	echo $html->link(str_replace("_"," ",$var['Software']['softName']), array('controller' => 'software','action' => 'showDesc',$var['Software']['softName']))."<br/>";

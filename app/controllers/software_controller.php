@@ -4,7 +4,7 @@ class SoftwareController extends AppController {
   var $name = 'Software';
   var $helpers = array('Html', 'Javascript', 'Ajax','Rss');
   var $uses = array('Software','Softbundle','Meta');
-  var $components = array('RequestHandler');
+    var $components = array('RequestHandler');
   function beforeFilter()
   {
 	$this->Sanitize = new Sanitize();
@@ -12,7 +12,6 @@ class SoftwareController extends AppController {
   function index() {
 	
   }
-#Software bundles
   function softbundles() {
  	$id = $this->params['pass'][0];
 	$data = $this->Softbundle->find('all',array('conditions'=>'Softbundle.id='."'".$id."'"));
@@ -25,7 +24,6 @@ class SoftwareController extends AppController {
 			    $this->cakeError('oopsError', array('page'=>'softbundles'.$id));
 	}
   }
-#Applictions grouped by sub category
   function showL2()
   {
 	$params = $this->params['pass'];
@@ -41,22 +39,25 @@ class SoftwareController extends AppController {
 			    $this->cakeError('oopsError', array('page'=>'showL2'.$softSubCat));
 	}
   }
-#Application description
   function showDesc()
   {
 	$params = $this->params['pass'];
 	$softName= $params[0];
 	$data = $this->Software->find('all',array('conditions'=>'Software.softName='."'".$softName."'"));
+	$simSoft = $this->Meta-> find('all',array('conditions'=>"metainfo LIKE '%".$data[0]['Software']['softName']."%' OR metainfo LIKE '%".str_replace(" ","_",$data[0]['Software']['softSubCat'])."%' OR metainfo LIKE '%".str_replace(" ","_",$data[0]['Software']['softCat'])."%'"));
+	$simSoft = explode(':',$simSoft[0]['Meta']['metaInfo']);
 	if(!empty($data))
 	{
+		$list = $this->Software->find('all',array('conditions'=>'Software.softSubCat='."'".$data[0]['Software']['softSubCat']."'",'fields'=>array('Software.softName')));
 		$this->set('data',$data);
+		$this->set('list',$list);
+		$this->set('simSoft',$simSoft);
 	}
 	else
 	{
 			    $this->cakeError('oopsError', array('page'=>'showDesc'.$softName));
 	}
   }
-#Search on form submit
   function search() {
 	if (!empty($this->data['Software']['search']))
 	{
@@ -69,7 +70,6 @@ class SoftwareController extends AppController {
 	}
 	}
 }
-#Live Search Control
 function searchPost()
 {
 	if (!empty($this->data['Software']['search']))
@@ -79,17 +79,18 @@ function searchPost()
 	{
 		$result = $this -> Software -> find('all',array('conditions'=>"softName LIKE '%".$query."%' OR softCat LIKE '%".str_replace(" ","_",$query)."%' OR softSubCat LIKE '%".str_replace(" ","_",$query)."%'"));
 		$this->set('result', $result);	
-	$this->render('search');
+		$this->render('search');
 	}
 	}
 }
-#RSS Feed
 function generatefeed(){
+
 	$software = $this->Software->find('all',array('order'=>array('Software.entry_date DESC'),'limit' => 20));
 	if(isset($this->params['requested'])) {
                          return $software;
                  }
-        $this->set('software',$software );
+                 $this->set('software',$software );
+
 }
 }
 ?>

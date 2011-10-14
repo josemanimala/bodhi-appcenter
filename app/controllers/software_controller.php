@@ -3,7 +3,7 @@ App::import('Sanitize');
 class SoftwareController extends AppController {
   var $name = 'Software';
   var $helpers = array('Html', 'Javascript', 'Ajax','Rss');
-  var $uses = array('Software','Softbundle');
+  var $uses = array('Software','Softbundle','Meta');
   var $components = array('RequestHandler');
   function beforeFilter()
   {
@@ -12,6 +12,7 @@ class SoftwareController extends AppController {
   function index() {
 	
   }
+#Software bundles
   function softbundles() {
  	$id = $this->params['pass'][0];
 	$data = $this->Softbundle->find('all',array('conditions'=>'Softbundle.id='."'".$id."'"));
@@ -24,6 +25,7 @@ class SoftwareController extends AppController {
 			    $this->cakeError('oopsError', array('page'=>'softbundles'.$id));
 	}
   }
+#Applictions grouped by sub category
   function showL2()
   {
 	$params = $this->params['pass'];
@@ -39,6 +41,7 @@ class SoftwareController extends AppController {
 			    $this->cakeError('oopsError', array('page'=>'showL2'.$softSubCat));
 	}
   }
+#Application description
   function showDesc()
   {
 	$params = $this->params['pass'];
@@ -53,6 +56,7 @@ class SoftwareController extends AppController {
 			    $this->cakeError('oopsError', array('page'=>'showDesc'.$softName));
 	}
   }
+#Search on form submit
   function search() {
 	if (!empty($this->data['Software']['search']))
 	{
@@ -65,6 +69,7 @@ class SoftwareController extends AppController {
 	}
 	}
 }
+#Live Search Control
 function searchPost()
 {
 	if (!empty($this->data['Software']['search']))
@@ -78,7 +83,7 @@ function searchPost()
 	}
 	}
 }
-
+#RSS Feed
 function generatefeed(){
 	$software = $this->Software->find('all',array('order'=>array('Software.entry_date DESC'),'limit' => 20));
 	if(isset($this->params['requested'])) {

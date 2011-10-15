@@ -41,17 +41,23 @@ class SoftwareController extends AppController {
   }
   function showDesc()
   {
+	var $result[];
 	$params = $this->params['pass'];
 	$softName= $params[0];
 	$data = $this->Software->find('all',array('conditions'=>'Software.softName='."'".$softName."'"));
 	$simSoft = $this->Meta-> find('all',array('conditions'=>"metainfo LIKE '%".$data[0]['Software']['softName']."%' OR metainfo LIKE '%".str_replace(" ","_",$data[0]['Software']['softSubCat'])."%' OR metainfo LIKE '%".str_replace(" ","_",$data[0]['Software']['softCat'])."%'"));
 	$simSoft = explode(':',$simSoft[0]['Meta']['metaInfo']);
+	foreach($simSoft as $var)
+	{
+		$tmp = $this -> Software -> find('all',array('conditions'=>"softName LIKE '%".$var."%' OR softCat LIKE '%".str_replace(" ","_",$var)."%' OR softSubCat LIKE '%".str_replace(" ","_",$var)."%'"));
+		array_push($result,$tmp);
+	}
 	if(!empty($data))
 	{
 		$list = $this->Software->find('all',array('conditions'=>'Software.softSubCat='."'".$data[0]['Software']['softSubCat']."'",'fields'=>array('Software.softName')));
 		$this->set('data',$data);
 		$this->set('list',$list);
-		$this->set('simSoft',$simSoft);
+		$this->set('simSoft',$result);
 	}
 	else
 	{

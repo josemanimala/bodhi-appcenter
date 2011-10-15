@@ -41,7 +41,7 @@ class SoftwareController extends AppController {
   }
   function showDesc()
   {
-	var $result[];
+	var $result;
 	$params = $this->params['pass'];
 	$softName= $params[0];
 	$data = $this->Software->find('all',array('conditions'=>'Software.softName='."'".$softName."'"));

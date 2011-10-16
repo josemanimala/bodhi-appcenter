@@ -40,24 +40,42 @@ class SoftwareController extends AppController {
 	}
   }
   function showDesc()
-  {
-	var $result;
+  {	
+	#meta search results added :)
+	$metaSoftList[]="test";
 	$params = $this->params['pass'];
 	$softName= $params[0];
 	$data = $this->Software->find('all',array('conditions'=>'Software.softName='."'".$softName."'"));
+	#find similar soft
 	$simSoft = $this->Meta-> find('all',array('conditions'=>"metainfo LIKE '%".$data[0]['Software']['softName']."%' OR metainfo LIKE '%".str_replace(" ","_",$data[0]['Software']['softSubCat'])."%' OR metainfo LIKE '%".str_replace(" ","_",$data[0]['Software']['softCat'])."%'"));
+	#split similar software
 	$simSoft = explode(':',$simSoft[0]['Meta']['metaInfo']);
+	#create similar software to display from meta
 	foreach($simSoft as $var)
 	{
-		$tmp = $this -> Software -> find('all',array('conditions'=>"softName LIKE '%".$var."%' OR softCat LIKE '%".str_replace(" ","_",$var)."%' OR softSubCat LIKE '%".str_replace(" ","_",$var)."%'"));
-		array_push($result,$tmp);
+		$metaSoft = $this -> Software -> find('all',array('conditions'=>"softName LIKE '%".$var."%' OR softCat LIKE '%".str_replace(" ","_",$var)."%' OR softSubCat LIKE '%".str_replace(" ","_",$var)."%'",'fields'=>array('Software.softName')));
+		foreach($metaSoft as $metaSoftName)
+		{
+			array_push($metaSoftList,$metaSoftName['Software']['softName']);
+		}
 	}
 	if(!empty($data))
 	{
+		#append subcategory to the meta array
 		$list = $this->Software->find('all',array('conditions'=>'Software.softSubCat='."'".$data[0]['Software']['softSubCat']."'",'fields'=>array('Software.softName')));
+		foreach($list as $var)
+		{
+			array_push($metaSoftList,$var['Software']['softName']);
+		}
+		#remove duplicates
+		$metaSoftList = array_unique($metaSoftList);
+		#remove test value
+		array_shift($metaSoftList);
+		#reverse for priority, show subcat first then meta.
+		$metaSoftList = array_reverse($metaSoftList);
 		$this->set('data',$data);
-		$this->set('list',$list);
-		$this->set('simSoft',$result);
+		#set the new meta variable, no change to view, only to the core logic!
+		$this->set('list',$metaSoftList);
 	}
 	else
 	{

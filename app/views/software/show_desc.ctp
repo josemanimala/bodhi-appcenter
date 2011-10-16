@@ -1,4 +1,4 @@
-<?PHP print_r($result); ?>
+<?PHP print_r($list); ?>
 <h1 class="sectionedit1"><a><?PHP echo str_replace("_"," ",$data[0]['Software']['softName']);?></a></h1> 
 <div class="level1"> 
 <p> 
@@ -69,7 +69,7 @@ if($data[0]['Software']['softApt']!="")
 <?PHP
 foreach($list as $var)
 {
-	echo $html->link(str_replace("_"," ",$var['Software']['softName']), array('controller' => 'software','action' => 'showDesc',$var['Software']['softName']))."<br/>";
+		echo $html->link(str_replace("_"," ",$var), array('controller' => 'software','action' => 'showDesc',$var))."<br/>";
 }
 ?>
 </p> 

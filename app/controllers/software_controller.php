@@ -45,24 +45,11 @@ class SoftwareController extends AppController {
   }
   function showDesc()
   {	
-	#meta search results added :)
-	$metaSoftList[]="test";
 	$params = $this->params['pass'];
 	$softName= $params[0];
 	$data = $this->Software->find('all',array('conditions'=>'Software.softName='."'".$softName."'"));
-	#find similar soft
-	$simSoft = $this->Meta-> find('all',array('conditions'=>"metainfo LIKE '%".$data[0]['Software']['softName']."%' OR metainfo LIKE '%".str_replace(" ","_",$data[0]['Software']['softSubCat'])."%' OR metainfo LIKE '%".str_replace(" ","_",$data[0]['Software']['softCat'])."%'"));
-	#split similar software
-	$simSoft = explode(':',$simSoft[0]['Meta']['metaInfo']);
-	#create similar software to display from meta
-	foreach($simSoft as $var)
-	{
-		$metaSoft = $this -> Software -> find('all',array('conditions'=>"softName LIKE '%".$var."%' OR softCat LIKE '%".str_replace(" ","_",$var)."%' OR softSubCat LIKE '%".str_replace(" ","_",$var)."%'",'fields'=>array('Software.softName')));
-		foreach($metaSoft as $metaSoftName)
-		{
-			array_push($metaSoftList,$metaSoftName['Software']['softName']);
-		}
-	}
+	#Call to meta Handler
+	$metaSoftList = $this->metaHandler($data[0]['Software']['softName'],$data[0]['Software']['softSubCat'],$data[0]['Software']['softCat']);
 	if(!empty($data))
 	{
 		#append subcategory to the meta array
@@ -86,8 +73,9 @@ class SoftwareController extends AppController {
 			    $this->cakeError('oopsError', array('page'=>'showDesc'.$softName));
 	}
   }
-  #live search handler
-  function search() {
+
+#live search handler
+function search() {
 	#postback characters
 	if (!empty($this->data['Software']['search']))
 	{
@@ -103,6 +91,7 @@ class SoftwareController extends AppController {
 	}
 	}
 }
+
 #description similar to search function, but handles only on clicking enter button in the search box. (Future disable the enter button).
 function searchPost()
 {
@@ -117,6 +106,7 @@ function searchPost()
 	}
 	}
 }
+
 #Lets burn a feed for the people.
 function generatefeed(){
 	#grab the top 20 changed/updated softwares
@@ -127,5 +117,29 @@ function generatefeed(){
                  }
                  $this->set('software',$software );
 }
+
+function metaHandler($softName,$softSubCat,$softCat)
+{
+	#meta search results added :)
+	$metaSoftList[]="test";
+	#find similar soft
+	$simSoft = $this->Meta-> find('all',array('conditions'=>"metainfo LIKE '%".$softName."%' OR metainfo LIKE '%".str_replace(" ","_",$softSubCat)."%' OR metainfo LIKE '%".str_replace(" ","_",$softCat)."%'"));
+	#split similar software
+	$simSoft = explode(':',$simSoft[0]['Meta']['metaInfo']);
+	#create similar software to display from meta
+	foreach($simSoft as $var)
+	{
+		#take a crack with each meta record to find a match, this is a greedy database search command.
+		$metaSoft = $this -> Software -> find('all',array('conditions'=>"softName LIKE '%".$var."%' OR softCat LIKE '%".str_replace(" ","_",$var)."%' OR softSubCat LIKE '%".str_replace(" ","_",$var)."%'",'fields'=>array('Software.softName')));
+		foreach($metaSoft as $metaSoftName)
+		{
+			#push everything into a single array, easier to manage
+			array_push($metaSoftList,$metaSoftName['Software']['softName']);
+		}
+	}
+	#chuck back the data
+	return $metaSoftList;
+}
+
 }
 ?>

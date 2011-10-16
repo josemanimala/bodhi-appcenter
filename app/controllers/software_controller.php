@@ -1,17 +1,20 @@
 <?php
 App::import('Sanitize');
 class SoftwareController extends AppController {
+  #controller name
   var $name = 'Software';
+  #load the helpers we need
   var $helpers = array('Html', 'Javascript', 'Ajax','Rss');
+  #load the tables we are going to use
   var $uses = array('Software','Softbundle','Meta');
-    var $components = array('RequestHandler');
+  #component handler for RSS feed
+  var $components = array('RequestHandler');
+  #load the Sanitize module, we need this to prevent XSS and sql injection attacks.
   function beforeFilter()
   {
 	$this->Sanitize = new Sanitize();
   }
-  function index() {
-	
-  }
+  #softbundles are here!
   function softbundles() {
  	$id = $this->params['pass'][0];
 	$data = $this->Softbundle->find('all',array('conditions'=>'Softbundle.id='."'".$id."'"));
@@ -24,6 +27,7 @@ class SoftwareController extends AppController {
 			    $this->cakeError('oopsError', array('page'=>'softbundles'.$id));
 	}
   }
+  #function to handle subcategories.
   function showL2()
   {
 	#fetch params
@@ -43,6 +47,7 @@ class SoftwareController extends AppController {
 			    $this->cakeError('oopsError', array('page'=>'showL2'.$softSubCat));
 	}
   }
+  #show each software and its full description, added meta.
   function showDesc()
   {	
 	$params = $this->params['pass'];
@@ -129,7 +134,7 @@ function metaHandler($softName,$softSubCat,$softCat)
 	#create similar software to display from meta
 	foreach($simSoft as $var)
 	{
-		#take a crack with each meta record to find a match, this is a greedy database search command.
+		#take a crack with each meta record to find a match, this is a greedy database search statement.
 		$metaSoft = $this -> Software -> find('all',array('conditions'=>"softName LIKE '%".$var."%' OR softCat LIKE '%".str_replace(" ","_",$var)."%' OR softSubCat LIKE '%".str_replace(" ","_",$var)."%'",'fields'=>array('Software.softName')));
 		foreach($metaSoft as $metaSoftName)
 		{

@@ -26,11 +26,15 @@ class SoftwareController extends AppController {
   }
   function showL2()
   {
+	#fetch params
 	$params = $this->params['pass'];
 	$softSubCat= $params[0];
+	#search for subcategory
 	$data = $this->Software->find('all',array('conditions'=>'Software.softSubCat='."'".$softSubCat."'",'order'=>array('Software.softName ASC'),'fields' => array('Software.softName')));
+	#create error handler
 	if(!empty($data))
 	{
+		#set display variables
 		$this->set('data',$data);
 		$this->set('softSubCat',$softSubCat);
 	}
@@ -82,18 +86,24 @@ class SoftwareController extends AppController {
 			    $this->cakeError('oopsError', array('page'=>'showDesc'.$softName));
 	}
   }
+  #live search handler
   function search() {
+	#postback characters
 	if (!empty($this->data['Software']['search']))
 	{
+	#santize and remove any stupid typo errors/ sql injection code
 	$query = $this -> Sanitize -> paranoid($this->data['Software']['search'],array(' '));
-	if (strlen($query) > 0)
+	#future handler to ensure that we can limit the search to trigger only for more than N characters
+	if (strlen($query) > 3)
 	{
+		#woah launch a mega DB search
 		$result = $this -> Software -> find('all',array('conditions'=>"softName LIKE '%".$query."%' OR softCat LIKE '%".str_replace(" ","_",$query)."%' OR softSubCat LIKE '%".str_replace(" ","_",$query)."%'"));
 		$this->set('result', $result);
 		$this->layout = 'ajax';
 	}
 	}
 }
+#description similar to search function, but handles only on clicking enter button in the search box. (Future disable the enter button).
 function searchPost()
 {
 	if (!empty($this->data['Software']['search']))
@@ -107,14 +117,15 @@ function searchPost()
 	}
 	}
 }
+#Lets burn a feed for the people.
 function generatefeed(){
-
+	#grab the top 20 changed/updated softwares
 	$software = $this->Software->find('all',array('order'=>array('Software.entry_date DESC'),'limit' => 20));
+	#hmm checking for particular feed (feed.rss).
 	if(isset($this->params['requested'])) {
                          return $software;
                  }
                  $this->set('software',$software );
-
 }
 }
 ?>

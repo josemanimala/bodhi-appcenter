@@ -84,31 +84,60 @@ function search() {
 	#postback characters
 	if (!empty($this->data['Software']['search']))
 	{
-	#santize and remove any stupid typo errors/ sql injection code
-	$query = $this -> Sanitize -> paranoid($this->data['Software']['search'],array(' '));
-	#future handler to ensure that we can limit the search to trigger only for more than N characters
-	if (strlen($query) > 3)
-	{
-		#woah launch a mega DB search
-		$result = $this -> Software -> find('all',array('conditions'=>"softName LIKE '%".$query."%' OR softCat LIKE '%".str_replace(" ","_",$query)."%' OR softSubCat LIKE '%".str_replace(" ","_",$query)."%'"));
-		$this->set('result', $result);
-		$this->layout = 'ajax';
-	}
+		#santize and remove any stupid typo errors/ sql injection code
+		$query = $this -> Sanitize -> paranoid($this->data['Software']['search'],array(' '));
+		#future handler to ensure that we can limit the search to trigger only for more than N characters
+		if (strlen($query) > 3)
+		{
+			#Call to meta Handler
+			$metaSoftList = $this->metaHandler($query,$query,$query);
+			#woah launch a mega DB search
+			$result = $this -> Software -> find('all',array('conditions'=>"softName LIKE '%".$query."%' OR softCat LIKE '%".str_replace(" ","_",$query)."%' OR softSubCat LIKE '%".str_replace(" ","_",$query)."%'"));
+			foreach($result as $var)
+			{
+				array_push($metaSoftList,$var['Software']['softName']);
+			}
+			#remove duplicates
+			$metaSoftList = array_unique($metaSoftList);
+			#remove test value
+			array_shift($metaSoftList);
+			#reverse for priority, show subcat first then meta.
+			$metaSoftList = array_reverse($metaSoftList);
+			$this->set('result', $metaSoftList);
+			$this->layout = 'ajax';
+		}
 	}
 }
 
 #description similar to search function, but handles only on clicking enter button in the search box. (Future disable the enter button).
+#duplicated code, need a fix for this in a future version.
 function searchPost()
 {
+	#postback characters
 	if (!empty($this->data['Software']['search']))
 	{
-	$query = $this -> Sanitize -> paranoid($this->data['Software']['search'],array(' '));
-	if (strlen($query) > 0)
-	{
-		$result = $this -> Software -> find('all',array('conditions'=>"softName LIKE '%".$query."%' OR softCat LIKE '%".str_replace(" ","_",$query)."%' OR softSubCat LIKE '%".str_replace(" ","_",$query)."%'"));
-		$this->set('result', $result);	
-		$this->render('search');
-	}
+		#santize and remove any stupid typo errors/ sql injection code
+		$query = $this -> Sanitize -> paranoid($this->data['Software']['search'],array(' '));
+		#future handler to ensure that we can limit the search to trigger only for more than N characters
+		if (strlen($query) > 3)
+		{
+			#Call to meta Handler
+			$metaSoftList = $this->metaHandler($query,$query,$query);
+			#woah launch a mega DB search
+			$result = $this -> Software -> find('all',array('conditions'=>"softName LIKE '%".$query."%' OR softCat LIKE '%".str_replace(" ","_",$query)."%' OR softSubCat LIKE '%".str_replace(" ","_",$query)."%'"));
+			foreach($result as $var)
+			{
+				array_push($metaSoftList,$var['Software']['softName']);
+			}
+			#remove duplicates
+			$metaSoftList = array_unique($metaSoftList);
+			#remove test value
+			array_shift($metaSoftList);
+			#reverse for priority, show subcat first then meta.
+			$metaSoftList = array_reverse($metaSoftList);
+			$this->set('result', $metaSoftList);	
+			$this->render('search');
+		}
 	}
 }
 
@@ -131,18 +160,22 @@ function metaHandler($softName,$softSubCat,$softCat)
 	$simSoft = $this->Meta-> find('all',array('conditions'=>"metainfo LIKE '%".$softName."%' OR metainfo LIKE '%".str_replace(" ","_",$softSubCat)."%' OR metainfo LIKE '%".str_replace(" ","_",$softCat)."%'"));
 	#split similar software
 	$simSoft = explode(':',$simSoft[0]['Meta']['metaInfo']);
-	#create similar software to display from meta
-	foreach($simSoft as $var)
+	#prevent sql table dump
+	if ($simSoft[0]!="")
 	{
-		#take a crack with each meta record to find a match, this is a greedy database search statement.
-		$metaSoft = $this -> Software -> find('all',array('conditions'=>"softName LIKE '%".$var."%' OR softCat LIKE '%".str_replace(" ","_",$var)."%' OR softSubCat LIKE '%".str_replace(" ","_",$var)."%'",'fields'=>array('Software.softName')));
-		foreach($metaSoft as $metaSoftName)
+		#create similar software to display from meta
+		foreach($simSoft as $var)
 		{
-			#push everything into a single array, easier to manage
-			array_push($metaSoftList,$metaSoftName['Software']['softName']);
+			#take a crack with each meta record to find a match, this is a greedy database search statement.
+			$metaSoft = $this -> Software -> find('all',array('conditions'=>"softName LIKE '%".$var."%' OR softCat LIKE '%".str_replace(" ","_",$var)."%' OR softSubCat LIKE '%".str_replace(" ","_",$var)."%'",'fields'=>array('Software.softName')));
+			foreach($metaSoft as $metaSoftName)
+			{
+				#push everything into a single array, easier to manage
+				array_push($metaSoftList,$metaSoftName['Software']['softName']);
+			}
 		}
+		#chuck back the data
 	}
-	#chuck back the data
 	return $metaSoftList;
 }
 

@@ -7,3 +7,8 @@ div.auto_complete    {
      padding          :0px;
 } 
 li.selected    { background-color: #fff; }
+h2, .search {
+    font-family: Ubuntu;
+    font-size: 2em; 
+}
+    

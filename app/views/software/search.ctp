@@ -5,7 +5,7 @@ print '<ul>';
 foreach ($result as $user)
 {
     print '<li>';
-        print '<a href="/software/showDesc/'.$user['Software']['softName'].'">' . str_replace("_"," ",$user['Software']['softName']) . '</a>';
+        print '<a href="/software/showDesc/'.$user.'">' . str_replace("_"," ",$user) . '</a>';
     print '</li>';
 }
 print '</ul>';

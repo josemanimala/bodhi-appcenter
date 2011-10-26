@@ -47,7 +47,6 @@ class SoftwareController extends AppController {
 			    $this->cakeError('oopsError', array('page'=>'showL2'.$softSubCat));
 	}
   }
-  
   #show each software and its full description, added meta.
   function showDesc()
   {	

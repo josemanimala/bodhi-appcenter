@@ -1,4 +1,3 @@
-<?PHP print_r($list); ?>
 <h1 class="sectionedit1"><a><?PHP echo str_replace("_"," ",$data[0]['Software']['softName']);?></a></h1> 
 <div class="level1"> 
 <p> 

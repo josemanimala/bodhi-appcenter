@@ -1,6 +1,5 @@
 <?php
 /* File: /app/views/software/search.ctp */
-print_r($result);
 if (isset($result)) {
 print '<ul>';
 foreach ($result as $user)

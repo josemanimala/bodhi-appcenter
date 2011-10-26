@@ -33,7 +33,7 @@
  * In production mode, flash messages redirect after a time interval.
  * In development mode, you need to click the flash message to continue.
  */
-	Configure::write('debug', 2);
+	Configure::write('debug', 0);
 
 /**
  * CakePHP Log Level:
@@ -246,9 +246,9 @@
 *
 **/
 
-Configure::write('Appcenter.build','Build: Stable 0.1.2-facd814');
+Configure::write('Appcenter.build','Build: Stable 0.1.4-7d7ec24');
 Configure::write('Appcenter.year','2011');
-Configure::write('Appcenter.copyright','(c) Bodhilinux Web Team');
+Configure::write('Appcenter.copyright','&copy; Bodhilinux Web Team');
 /**
  * If you are on PHP 5.3 uncomment this line and correct your server timezone
  * to fix the date & time related errors.

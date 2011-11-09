@@ -358,7 +358,6 @@ html[xmlns] #nav {
 <li><a href="http://www.bodhilinux.com/about.php">What Is Bodhi Linux?</a></li> 
 <li><a href="http://www.bodhilinux.com/system.php">System Requirements</a></li> 
 <li><a href="http://www.bodhilinux.com/team.php">Team</a></li> 
-<li><a href="http://www.bodhilinux.com/affiliates.php">Affiliates</a></li> 
 <li><a href="http://www.bodhilinux.com/media.php">In the News</a></li> 
 </ul> 
 </li> 

@@ -52,7 +52,7 @@ class PagesController extends AppController {
  * @var array
  * @access public
  */
-	var $uses = array('Software','Softbundle');
+	var $uses = array('Software','Softbundle','Catorder');
 
 	
 
@@ -64,6 +64,7 @@ class PagesController extends AppController {
  */
 	function display() {
 		//$this->loadModel('Software');
+		$order = $this->Catorder->find('all',array('order'=>'Catorder.PriorityNo'));
 		$data = $this->Software->find('all',array('fields' => array('DISTINCT Software.softCat')));
 		$data1 = $this->Softbundle->find('all',array('fields' => array('Softbundle.bundleName','Softbundle.id','Softbundle.bundleShrtDesc')));
 		$data= Set::extract($data, '/Software/softCat');
@@ -74,6 +75,7 @@ class PagesController extends AppController {
 			$this->set("w00t".$i,$tmp1);
 			$i++;
 		}
+		print_r($order);
 		$this->set('software', $data);
 		$this->set('softbundle', $data1);
 		$this->set('softcount', $i);

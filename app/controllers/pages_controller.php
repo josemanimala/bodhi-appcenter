@@ -75,7 +75,7 @@ class PagesController extends AppController {
 			$this->set("w00t".$i,$tmp1);
 			$i++;
 		}
-		print_r($item);
+		print_r($data);
 		$temp = array('test');
 		$temp1 = array('test');
 		foreach($data as $item)

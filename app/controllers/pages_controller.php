@@ -75,10 +75,9 @@ class PagesController extends AppController {
 			$this->set("w00t".$i,$tmp1);
 			$i++;
 		}
-		$temp = array('test');
 		foreach($order as $item)
 		{
-			$temp = $item['Catorder']['catName'];	
+			array_push($temp,$item['Catorder']['catName']);	
 		}
 		print_r($temp);
 		foreach($temp as $input)

@@ -80,15 +80,13 @@ class PagesController extends AppController {
 		{
 			array_push($temp,trim($item['Catorder']['catName']));	
 		}
-		print_r($temp);
 		foreach($temp as $input)
 		{		
-			while (($pos = array_search($input, $data)) !== false) {
-		 	   unset($data[$pos]);
+			while (($index = array_search($input, $data)) !== false) {
+		 	   unset($data[$index]);
 			}
 		}
 		$data=array_merge($temp,$data);
-		print_r($data);
 		$this->set('software', $data);
 		$this->set('softbundle', $data1);
 		$this->set('softcount', $i);

@@ -37,7 +37,6 @@ foreach($software as $var)
 ?>
 <h3 class="sectionedit4"><a><?PHP echo str_replace("_"," ",$var); ?></a></h3> 
 <?PHP
-}
 	
 	for($i=0;$i<$softcount;$i++)
 	{ 
@@ -59,12 +58,16 @@ foreach($software as $var)
 			</div> 
 			</li> 
 		
-		<?PHP 	}
-			if($w01t['Software']['softCat'] == $var)
+	<?PHP 	}
+			if($w01t['Software']['softCat'] == $var and $w01t['Software']['softCat'] != 'The_Bodhi_Store')
 			{
 				echo '</ul></div>';
 			}
 		}
+		?>
+		
+	<?PHP
+}
 }
 ?>
 

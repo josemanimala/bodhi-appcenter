@@ -85,7 +85,7 @@ class PagesController extends AppController {
 				{
 					array_push($temp,$itemCat['Catorder']['catName']);
 				}
-				else
+				elseif(trim($itemCat['Catorder']['catName'])!=$item)
 				{
 					array_push($temp1,$item);
 				}

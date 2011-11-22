@@ -87,7 +87,7 @@ class PagesController extends AppController {
 				}
 				else
 				{
-					array_push($temp1,$itemCat);
+					array_push($temp1,$item);
 				}
 			}
 			

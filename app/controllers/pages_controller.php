@@ -78,25 +78,17 @@ class PagesController extends AppController {
 		$temp = array('test');
 		foreach($order as $item)
 		{
-			foreach($data as $itemCat)
-			{
-				if(trim($item['Catorder']['catName'])==$itemCat)
-				{
-					array_push($temp,$item['Catorder']['catName']);
-				}
-			}	
-		}
-		foreach($order as $item)
-		{
-			foreach($data as $itemCat)
-			{
-				if(trim($item['Catorder']['catName'])!=$itemCat)
-				{
-					array_push($temp,$itemCat);
-				}
-			}	
+			$temp = $item['Catorder']['catName'];	
 		}
 		print_r($temp);
+		foreach($temp as $input)
+		{		
+			while (($pos = array_search($input, $data)) !== false) {
+		 	   unset($data[$pos]);
+			}
+		}
+		$data=array_merge($temp,$data);
+		print_r($data);
 		$this->set('software', $data);
 		$this->set('softbundle', $data1);
 		$this->set('softcount', $i);

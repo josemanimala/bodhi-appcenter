@@ -81,7 +81,6 @@ class PagesController extends AppController {
 		{
 			foreach($order as $itemCat)
 			{
-				print_r(trim($itemCat['Catorder']['catName']));
 				if(trim($itemCat['Catorder']['catName'])==$item)
 				{
 					array_push($temp,$itemCat['Catorder']['catName']);
@@ -93,8 +92,8 @@ class PagesController extends AppController {
 			}
 			
 		}
-		#print_r($temp);
-		#print_r($temp1);
+		print_r($temp);
+		print_r($temp1);
 		$this->set('software', $data);
 		$this->set('softbundle', $data1);
 		$this->set('softcount', $i);

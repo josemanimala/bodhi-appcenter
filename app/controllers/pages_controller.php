@@ -78,7 +78,7 @@ class PagesController extends AppController {
 		$temp=array();
 		foreach($order as $item)
 		{
-			array_push($temp,$item['Catorder']['catName']);	
+			array_push($temp,trim($item['Catorder']['catName']));	
 		}
 		print_r($temp);
 		foreach($temp as $input)

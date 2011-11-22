@@ -12,9 +12,7 @@ Welcome to the Bodhi Linux software page. Here you will find easy to install sof
 <?PHP  
 
 #History
-#Show The Bodhi store first hack
-#Softbundles added
-#Completed Software list
+#cleanedup, now runs using Catorder to change order of categories
 
 foreach($softbundle as $var)
 {

@@ -75,6 +75,7 @@ class PagesController extends AppController {
 			$this->set("w00t".$i,$tmp1);
 			$i++;
 		}
+		print_r($order);
 		$temp = array('test');
 		$temp1 = array('test');
 		foreach($order as $item)

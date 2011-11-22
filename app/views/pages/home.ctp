@@ -59,15 +59,12 @@ foreach($software as $var)
 			</div> 
 			</li> 
 		
-	<?PHP 	}
+		<?PHP 	}
 			if($w01t['Software']['softCat'] == $var)
 			{
 				echo '</ul></div>';
 			}
 		}
-		?>
-		
-	<?PHP
 }
 ?>
 

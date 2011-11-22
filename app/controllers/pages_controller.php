@@ -81,8 +81,8 @@ class PagesController extends AppController {
 		{
 			foreach($order as $itemCat)
 			{
-				print_r($itemCat['Catorder']['catName']);
-				if($itemCat['Catorder']['catName']==$item)
+				print_r(trim($itemCat['Catorder']['catName']));
+				if(trim($itemCat['Catorder']['catName'])==$item)
 				{
 					array_push($temp,$itemCat['Catorder']['catName']);
 				}

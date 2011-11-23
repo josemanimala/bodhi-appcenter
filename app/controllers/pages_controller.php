@@ -64,8 +64,8 @@ class PagesController extends AppController {
  */
 	function display() {
 		//$this->loadModel('Software');
-		$order = $this->Catorder->find('all',array('conditions'=>"Software.softCat!='Software_Packages'",'order'=>'Catorder.PriorityNo'));
-		$data = $this->Software->find('all',array('fields' => array('DISTINCT Software.softCat')));
+		$order = $this->Catorder->find('all',array('order'=>'Catorder.PriorityNo'));
+		$data = $this->Software->find('all',array('conditions'=>"Software.softCat!='Software_Packages'",'fields' => array('DISTINCT Software.softCat')));
 		$data1 = $this->Softbundle->find('all',array('fields' => array('Softbundle.bundleName','Softbundle.id','Softbundle.bundleShrtDesc')));
 		$data= Set::extract($data, '/Software/softCat');
 		$i=0;

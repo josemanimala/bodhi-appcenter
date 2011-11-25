@@ -66,7 +66,8 @@ class PagesController extends AppController {
 		//$this->loadModel('Software');
 		$order = $this->Catorder->find('all',array('order'=>'Catorder.PriorityNo'));
 		$data = $this->Software->find('all',array('conditions'=>"Software.softCat!='Software_Packages'",'fields' => array('DISTINCT Software.softCat')));
-		$data1 = $this->Softbundle->find('all',array('fields' => array('Softbundle.bundleName','Softbundle.id','Softbundle.bundleShrtDesc')));
+		$softBundle = $this->Softbundle->find('all',array('fields' => array('Softbundle.bundleName','Softbundle.id','Softbundle.bundleShrtDesc')));
+		$softPackages = $this->Software->find('all',array('conditions'=>"Software.softCat='Software_Packages'",'fields' => array('Software.softName','Software.softCat')));
 		$data= Set::extract($data, '/Software/softCat');
 		$i=0;
 		foreach($data as $var)
@@ -88,8 +89,9 @@ class PagesController extends AppController {
 			}
 		}
 		$data=array_merge($temp,$data);
+		$this->set('softPackages',$softPackages);
 		$this->set('software', $data);
-		$this->set('softbundle', $data1);
+		$this->set('softbundle', $softBundle);
 		$this->set('softcount', $i);
 		
 		$path = func_get_args();

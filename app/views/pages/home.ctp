@@ -23,6 +23,24 @@ foreach($softbundle as $var)
 	echo $var['Softbundle']['bundleShrtDesc'];
 	echo "</p>";
  } ?>
+
+<?PHP
+#software packages section
+?>
+<h2 class="sectionedit1"><a>Software Packages</a></h2> 
+<div class="level2"> 
+ 
+
+<?PHP  
+foreach($softPackage as $var)
+{
+	echo "<p>";
+	echo $html->link($var['Software']['softName'], array('controller' => 'software',      'action' => 'showDesc',$var['Software']['softName']));
+	echo "</p>";
+ } ?>
+ 
+</div>
+
  
 </div>
 <h2 class="sectionedit1"><a>Software Categories</a></h2> 

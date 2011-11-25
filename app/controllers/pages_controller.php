@@ -66,6 +66,7 @@ class PagesController extends AppController {
 		//$this->loadModel('Software');
 		$order = $this->Catorder->find('all',array('order'=>'Catorder.PriorityNo'));
 		$data = $this->Software->find('all',array('conditions'=>"Software.softCat!='Software_Packages'",'fields' => array('DISTINCT Software.softCat')));
+		print_r($data);
 		$softBundle = $this->Softbundle->find('all',array('fields' => array('Softbundle.bundleName','Softbundle.id','Softbundle.bundleShrtDesc')));
 		$softPackages = $this->Software->find('all',array('conditions'=>"Software.softCat='Software_Packages'",'fields' => array('Software.softName','Software.softCat')));
 		$data= Set::extract($data, '/Software/softCat');
@@ -89,8 +90,6 @@ class PagesController extends AppController {
 			}
 		}
 		$data=array_merge($temp,$data);
-		print_r($data);
-		print_r($temp);
 		$this->set('softPackages',$softPackages);
 		$this->set('software', $data);
 		$this->set('softbundle', $softBundle);

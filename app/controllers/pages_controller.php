@@ -88,8 +88,9 @@ class PagesController extends AppController {
 		 	   unset($data[$index]);
 			}
 		}
-		print_r($data);
 		$data=array_merge($temp,$data);
+		print_r($data);
+		print_r($temp);
 		$this->set('softPackages',$softPackages);
 		$this->set('software', $data);
 		$this->set('softbundle', $softBundle);

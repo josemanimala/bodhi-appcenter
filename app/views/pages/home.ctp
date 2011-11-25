@@ -35,7 +35,7 @@ foreach($softbundle as $var)
 foreach($softPackages as $var)
 {
 	echo "<p>";
-	echo $html->link($var['Software']['softName'], array('controller' => 'software',      'action' => 'showDesc',$var['Software']['softName']));
+	echo $html->link(str_replace("_"," ",$var['Software']['softName']), array('controller' => 'software',      'action' => 'showDesc',$var['Software']['softName']));
 	echo "</p>";
  } ?>
  

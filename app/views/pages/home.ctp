@@ -32,7 +32,7 @@ foreach($softbundle as $var)
  
 
 <?PHP  
-foreach($softPackage as $var)
+foreach($softPackages as $var)
 {
 	echo "<p>";
 	echo $html->link($var['Software']['softName'], array('controller' => 'software',      'action' => 'showDesc',$var['Software']['softName']));

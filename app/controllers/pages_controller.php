@@ -52,7 +52,7 @@ class PagesController extends AppController {
  * @var array
  * @access public
  */
-	var $uses = array('Software','Softbundle');
+	var $uses = array('Software','Softbundle','Catorder');
 
 	
 
@@ -64,18 +64,34 @@ class PagesController extends AppController {
  */
 	function display() {
 		//$this->loadModel('Software');
-		$data = $this->Software->find('all',array('fields' => array('DISTINCT Software.softCat')));
-		$data1 = $this->Softbundle->find('all',array('fields' => array('Softbundle.bundleName','Softbundle.id','Softbundle.bundleShrtDesc')));
+		$order = $this->Catorder->find('all',array('conditions'=>"Catorder.CatName!='Software_Packages'",'order'=>'Catorder.PriorityNo'));
+		$data = $this->Software->find('all',array('conditions'=>"Software.softCat!='Software_Packages'",'fields' => array('DISTINCT Software.softCat')));
+		$softBundle = $this->Softbundle->find('all',array('fields' => array('Softbundle.bundleName','Softbundle.id','Softbundle.bundleShrtDesc')));
+		$softPackages = $this->Software->find('all',array('conditions'=>"Software.softCat='Software_Packages'",'fields' => array('Software.softName','Software.softCat')));
 		$data= Set::extract($data, '/Software/softCat');
 		$i=0;
 		foreach($data as $var)
 		{
-			$tmp1 = $this->Software->find('all',array('conditions'=>'Software.softCat='."'".$var."'",'fields' => array('DISTINCT Software.softSubCat','Software.softCat')));
+			$tmp1 = $this->Software->find('all',array('conditions'=>'Software.softCat='."'".$var."' and Software.softCat!='Software_Packages'",'fields' => array('DISTINCT Software.softSubCat','Software.softCat')));
 			$this->set("w00t".$i,$tmp1);
 			$i++;
 		}
+		#create ordering 
+		$temp=array();
+		foreach($order as $item)
+		{
+			array_push($temp,trim($item['Catorder']['catName']));	
+		}
+		foreach($temp as $input)
+		{		
+			while (($index = array_search($input, $data)) !== false) {
+		 	   unset($data[$index]);
+			}
+		}
+		$data=array_merge($temp,$data);
+		$this->set('softPackages',$softPackages);
 		$this->set('software', $data);
-		$this->set('softbundle', $data1);
+		$this->set('softbundle', $softBundle);
 		$this->set('softcount', $i);
 		
 		$path = func_get_args();

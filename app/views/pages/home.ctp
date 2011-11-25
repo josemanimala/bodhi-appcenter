@@ -12,9 +12,7 @@ Welcome to the Bodhi Linux software page. Here you will find easy to install sof
 <?PHP  
 
 #History
-#Show The Bodhi store first hack
-#Softbundles added
-#Completed Software list
+#cleanedup, now runs using Catorder to change order of categories
 
 foreach($softbundle as $var)
 {
@@ -25,70 +23,47 @@ foreach($softbundle as $var)
 	echo $var['Softbundle']['bundleShrtDesc'];
 	echo "</p>";
  } ?>
+
+<?PHP
+#software packages section
+?>
+<h2 class="sectionedit1"><a>Bodhi Software Packages</a></h2> 
+<div class="level2"> 
+ 
+
+<?PHP  
+foreach($softPackages as $var)
+{
+	echo "<p>";
+	echo $html->link(str_replace("_"," ",$var['Software']['softName']), array('controller' => 'software',      'action' => 'showDesc',$var['Software']['softName']));
+	echo "</p>";
+ } ?>
+ 
+</div>
+
  
 </div>
 <h2 class="sectionedit1"><a>Software Categories</a></h2> 
 <div class="level2"> 
  
-
 <?PHP
-
-$bodhiStore = ClassRegistry::init('Software')->find('all',array('conditions'=>'Software.softCat=\'The_Bodhi_Store\''));
-
-echo '<h3 class="sectionedit4"><a>'.str_replace("_"," ",$bodhiStore[0]['Software']['softCat']).'</a></h3>';
-$count = ClassRegistry::init('Software')->find('count',array('conditions'=>'Software.softSubCat='."'".$bodhiStore[0]['Software']['softSubCat']."'"));
-echo '<div class="level3"> 
-						 <ul>';
-foreach($bodhiStore[0] as $var)
-{
-?>
-	<li class="level1">
-		<div class="li"> 
-			
-				<?PHP echo $html->link(str_replace("_"," ",$var['softSubCat']), array( 'controller' => 'software',      'action' => 'showL2',$var['softSubCat']))."&nbsp;(".$count.")"; ?>
-	</div> 
-	</li>
-<?PHP
-}
-#service pack position hack
-$bodhiSP = ClassRegistry::init('Software')->find('all',array('conditions'=>'Software.softCat=\'Bodhi_Service_Packs\''));
-
-echo '<h3 class="sectionedit4"><a>'.str_replace("_"," ",$bodhiSP[0]['Software']['softCat']).'</a></h3>';
-$count = ClassRegistry::init('Software')->find('count',array('conditions'=>'Software.softSubCat='."'".$bodhiSP[0]['Software']['softSubCat']."'"));
-echo '<div class="level3"> 
-						 <ul>';
-foreach($bodhiSP[0] as $var)
-{
-?>
-	<li class="level1">
-		<div class="li"> 
-			
-				<?PHP echo $html->link(str_replace("_"," ",$var['softSubCat']), array( 'controller' => 'software',      'action' => 'showL2',$var['softSubCat']))."&nbsp;(".$count.")"; ?>
-	</div> 
-	</li>
-<?PHP
-}
-
-echo '</ul></div>';
 $var="";
 foreach($software as $var)
 { 
-if( $var!= 'The_Bodhi_Store' && $var!= 'Bodhi_Service_Packs')
-{?>
+?>
 <h3 class="sectionedit4"><a><?PHP echo str_replace("_"," ",$var); ?></a></h3> 
 <?PHP
-}
 	
 	for($i=0;$i<$softcount;$i++)
 	{ 
 		foreach(${'w00t' . $i} as $w01t)
 		{
-			if($w01t['Software']['softCat'] == $var and $w01t['Software']['softCat'] != 'The_Bodhi_Store' and $w01t['Software']['softCat'] != 'Bodhi_Service_Packs')
+			if($w01t['Software']['softCat'] == $var)
 			{
 			echo '<div class="level3"> 
 						 <ul>';
 			}
-			if($w01t['Software']['softCat'] == $var and $w01t['Software']['softCat'] != 'The_Bodhi_Store' and $w01t['Software']['softCat'] != 'Bodhi_Service_Packs')
+			if($w01t['Software']['softCat'] == $var)
 			{ 
 				$count = ClassRegistry::init('Software')->find('count',array('conditions'=>'Software.softSubCat='."'".$w01t['Software']['softSubCat']."'"));
 		?> 
@@ -108,7 +83,7 @@ if( $var!= 'The_Bodhi_Store' && $var!= 'Bodhi_Service_Packs')
 		?>
 		
 	<?PHP
-	}
+}
 }
 ?>
 

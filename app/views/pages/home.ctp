@@ -27,7 +27,7 @@ foreach($softbundle as $var)
 <?PHP
 #software packages section
 ?>
-<h2 class="sectionedit1"><a>Software Packages</a></h2> 
+<h2 class="sectionedit1"><a>Bodhi Software Packages</a></h2> 
 <div class="level2"> 
  
 

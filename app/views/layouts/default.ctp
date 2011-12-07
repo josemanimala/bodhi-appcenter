@@ -40,10 +40,11 @@
 <link rel="alternate" type="text/html" title="Plain HTML" href="/software/doku.php?do=export_xhtml&amp;id=start" /> 
 <link rel="alternate" type="text/plain" title="Wiki Markup" href="/software/doku.php?do=export_raw&amp;id=start" /> 
 <link rel="canonical" href="http://www.bodhilinux.com/software/doku.php?id=start" /> 
+<link rel="shortcut icon" href="http://bodhilinux.com/favicon.ico.png">
+<link rel="stylesheet" media="all" type="text/css" href="/css/design.css" /> 
 <link rel="stylesheet" media="screen" type="text/css" href="/css/css1.css" /> 
 <link rel="stylesheet" media="all" type="text/css" href="/css/css2.css" /> 
 <link rel="stylesheet" media="print" type="text/css" href="/css/css3.css" /> 
-<link rel="shortcut icon" href="http://bodhilinux.com/favicon.ico.png">
 <script type="text/javascript" ><!--//--><![CDATA[//><!--
 var NS='';var JSINFO = {"id":"start","namespace":""};
 //--><!]]></script> 

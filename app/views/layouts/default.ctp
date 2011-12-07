@@ -43,6 +43,7 @@
 <link rel="stylesheet" media="screen" type="text/css" href="/css/css1.css" /> 
 <link rel="stylesheet" media="all" type="text/css" href="/css/css2.css" /> 
 <link rel="stylesheet" media="print" type="text/css" href="/css/css3.css" /> 
+<link rel="shortcut icon" href="http://bodhilinux.com/favicon.ico.png">
 <script type="text/javascript" ><!--//--><![CDATA[//><!--
 var NS='';var JSINFO = {"id":"start","namespace":""};
 //--><!]]></script> 
@@ -380,6 +381,18 @@ echo $ajax->autoComplete('Software.search', '/software/search')?>
 			<?php echo $this->Session->flash(); ?>
 			<?php echo $content_for_layout; ?>
 </div>
+</div>
+<div id='bodhifooter'>
+<h3 style="font-weight:bold;"><a href="http://www.bodhilinux.com/membership.php">Membership</a> - 
+
+<a href="http://www.bodhilinux.com/affiliates.php">Affiliates</a> - 
+
+<a href="http://www.bodhilinux.com/donations.php">Donations</a> - 
+
+<a href="http://www.bodhilinux.com/start.php">Bodhi SEARCH</a>
+
+
+</h3>
 </div>
 <div id='footer'>
 <?PHP

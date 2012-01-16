@@ -384,16 +384,18 @@ echo $ajax->autoComplete('Software.search', '/software/search')?>
 </div>
 </div>
 <div id='bodhifooter'>
-<h3 style="font-weight:bold;"><a href="http://www.bodhilinux.com/membership.php">Membership</a> - 
+<h3 style="font-weight:bold;"><a href="http://www.bodhilinux.com/membership.php">Membership</a> -
 
-<a href="http://www.bodhilinux.com/affiliates.php">Affiliates</a> - 
+<a href="http://www.bodhilinux.com/goodies.php">Goodies</a> -
 
-<a href="http://www.bodhilinux.com/donations.php">Donations</a> - 
+<a href="http://www.bodhilinux.com/affiliates.php">Affiliates</a> -
+
+<a href="http://www.bodhilinux.com/donations.php">Donations</a> -
 
 <a href="http://www.bodhilinux.com/start.php">Bodhi SEARCH</a>
 
 
-</h3>
+</h3> 
 </div>
 <div id='footer'>
 <?PHP

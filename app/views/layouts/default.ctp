@@ -361,6 +361,7 @@ html[xmlns] #nav {
 <li><a href="http://www.bodhilinux.com/system.php">System Requirements</a></li> 
 <li><a href="http://www.bodhilinux.com/team.php">Team</a></li> 
 <li><a href="http://www.bodhilinux.com/media.php">In the News</a></li> 
+<li><a href="http://www.bodhilinux.com/contact.php">Contact</a></li> 
 </ul> 
 </li> 
 </ul> 

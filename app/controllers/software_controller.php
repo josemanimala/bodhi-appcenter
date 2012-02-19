@@ -34,7 +34,7 @@ class SoftwareController extends AppController {
 	$params = $this->params['pass'];
 	$softSubCat= $params[0];
 	#search for subcategory
-	$data = $this->Software->find('all',array('conditions'=>'Software.softSubCat='."'".$softSubCat."'",'order'=>array('Software.softName ASC'),'fields' => array('Software.softName')));
+	$data = $this->Software->find('all',array('conditions'=>'Software.softSubCat='."'".$softSubCat."'",'order'=>array('Software.softName ASC'),'fields' => array('DISTINCT Software.softName')));
 	#create error handler
 	if(!empty($data))
 	{
@@ -53,7 +53,17 @@ class SoftwareController extends AppController {
   {	
 	$params = $this->params['pass'];
 	$softName= $params[0];
-	$data = $this->Software->find('all',array('conditions'=>'Software.softName='."'".$softName."'"));
+	if($params[1]!="")
+	{
+		$archType = $params[1];
+	}
+	else
+	{
+		$archType = "i386";	
+	}
+	
+	$data = $this->Software->find('all',array('conditions'=>'Software.softName='."'".$softName."' AND Software.arch='".$archType."'"));
+	$archTypeList = $this->Software->find('all',array('fields'=>'DISTINCT arch','conditions'=>'Software.softName='."'".$softName."'"));
 	#Call to meta Handler
 	$metaSoftList = $this->metaHandler($data[0]['Software']['softName'],$data[0]['Software']['softSubCat'],$data[0]['Software']['softCat']);
 	if(!empty($data))
@@ -73,6 +83,8 @@ class SoftwareController extends AppController {
 		$this->set('data',$data);
 		#set the new meta variable, no change to view, only to the core logic!
 		$this->set('list',$metaSoftList);
+		#set the archtype list for display
+		$this->set('archTypeList',$archTypeList);
 	}
 	else
 	{

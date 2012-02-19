@@ -1,4 +1,4 @@
-<h1 class="sectionedit1"><a><?PHP echo str_replace("_"," ",$data[0]['Software']['softName']);?></a></h1> 
+<h1 class="sectionedit1"><a><?PHP echo str_replace("_"," ",$data[0]['Software']['softName']."/&nbsp;".$data[0]['Software']['arch']);?></a></h1> 
 <div class="level1"> 
 <p> 
 <img src="<?PHP echo $data[0]['Software']['softScreenie'];?>" class="medialeft" align="left" alt="" width="200" />
@@ -19,6 +19,18 @@ echo $data[0]['Software']['softSize'];
 <p> 
 <h4>md5 checksum:</h4><?PHP 
 echo $data[0]['Software']['md5']; 
+?> 
+</p>  
+
+<p> 
+<h4>Architectures:</h4><?PHP 
+
+foreach($archTypeList as $var)
+{
+echo $html->link($var['Software']['arch'],"showDesc/".$data[0]['Software']['softName']."/".$var['Software']['arch']);
+echo "&nbsp;";
+}
+ 
 ?> 
 </p>  
 

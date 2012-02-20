@@ -11,7 +11,7 @@ if(!isset($archError))
 <?PHP
 foreach($softNames as $var)
 {
-echo $html->link(str_replace("_"," ",$var['Software']['softName']), array('controller' => 'software','action' => 'showDesc',$var['Software']['softName']));
+echo $html->link(str_replace("_"," ",$var['Software']['softName']), array('controller' => 'software','action' => 'showDesc',$var['Software']['softName']."/".$archType));
 echo "<br/>";
 }
 ?>

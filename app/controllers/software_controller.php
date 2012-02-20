@@ -13,6 +13,8 @@ class SoftwareController extends AppController {
   function beforeFilter()
   {
 	$this->Sanitize = new Sanitize();
+	$archTypeDBList = $archTypeDBList = $this->Software->find('all',array('fields'=>'DISTINCT arch'));
+	$this->set('archTypeDBList',$archTypeDBList);
   }
   #softbundles are here!
   function softbundles() {

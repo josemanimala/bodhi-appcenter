@@ -13,6 +13,7 @@ class SoftwareController extends AppController {
   function beforeFilter()
   {
 	$this->Sanitize = new Sanitize();
+	#Adding in data for the Arch menu for every page.
 	$archTypeDBList = $archTypeDBList = $this->Software->find('all',array('fields'=>'DISTINCT arch'));
 	$this->set('archTypeDBList',$archTypeDBList);
   }

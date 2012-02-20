@@ -1,3 +1,15 @@
+<div style='position:absolute;
+	right:220px;
+	width:300px;'>
+<b>Architectures:&nbsp;&nbsp;</b>
+<?PHP
+foreach($archTypeDBList as $var)
+{
+	echo $html->link($var['Software']['arch'], array('controller' => 'software',      'action' => 'arch',$var['Software']['arch']))."&nbsp;";
+}
+?>
+</div>
+
 <h1 class="sectionedit1"><a name="bodhi_linux_add_software_home" id="bodhi_linux_add_software_home">Bodhi Linux AppCenter</a></h1> 
 <div class="level1"> 
 <p> 

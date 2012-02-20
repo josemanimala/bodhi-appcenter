@@ -68,6 +68,7 @@ class PagesController extends AppController {
 		$data = $this->Software->find('all',array('conditions'=>"Software.softCat!='Software_Packages'",'fields' => array('DISTINCT Software.softCat')));
 		$softBundle = $this->Softbundle->find('all',array('fields' => array('Softbundle.bundleName','Softbundle.id','Softbundle.bundleShrtDesc')));
 		$softPackages = $this->Software->find('all',array('conditions'=>"Software.softCat='Software_Packages'",'fields' => array('Software.softName','Software.softCat')));
+		$archTypeDBList = $archTypeDBList = $this->Software->find('all',array('fields'=>'DISTINCT arch'));
 		$data= Set::extract($data, '/Software/softCat');
 		$i=0;
 		foreach($data as $var)
@@ -93,7 +94,7 @@ class PagesController extends AppController {
 		$this->set('software', $data);
 		$this->set('softbundle', $softBundle);
 		$this->set('softcount', $i);
-		
+		$this->set('archTypeDBList',$archTypeDBList);
 		$path = func_get_args();
 
 		$count = count($path);

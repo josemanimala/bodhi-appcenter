@@ -1,8 +1,9 @@
 <?PHP 
+$archLabel = array('i386'=>'Desktop','armel'=>'Mobile','x86_64'=>'Work Station');
 if(!isset($archError))
 {
 ?>
-<h2 class="sectionedit1"><a><?PHP echo $archType; ?></a></h2> 
+<h2 class="sectionedit1"><a><?PHP echo $archLabel[$archType]; ?></a></h2> 
 <div class="level2"> 
 <h3>
 *Warning* This will be a long page with all the apps listed for the architecture requested.

@@ -53,16 +53,18 @@ class SoftwareController extends AppController {
   {	
 	$params = $this->params['pass'];
 	$softName= $params[0];
+	#Filter and handle architecture parameters
 	if($params[1]!="")
 	{
 		$archType = $params[1];
 	}
 	else
-	{
+	{#defaults to i386 if no arch is specified.
 		$archType = "i386";	
 	}
-	
+	#added architecture filter condition
 	$data = $this->Software->find('all',array('conditions'=>'Software.softName='."'".$softName."' AND Software.arch='".$archType."'"));
+	#Total architectures supported for a particular application
 	$archTypeList = $this->Software->find('all',array('fields'=>'DISTINCT arch','conditions'=>'Software.softName='."'".$softName."'"));
 	#Call to meta Handler
 	$metaSoftList = $this->metaHandler($data[0]['Software']['softName'],$data[0]['Software']['softSubCat'],$data[0]['Software']['softCat']);
@@ -191,6 +193,40 @@ function metaHandler($softName,$softSubCat,$softCat)
 	}
 	return $metaSoftList;
 }
+
+#Arch pages and listing.
+function arch()
+{
+	$params = $this->params['pass'];
+	if($params[0]!="")
+	{
+		$archType = $params[0];
+	}
+	else
+	{#defaults to i386 if no arch is specified.
+		$archType = "i386";	
+	}
+	$archTypeDBList = $archTypeDBList = $this->Software->find('all',array('fields'=>'DISTINCT arch'));
+	$flag = "noSupport";
+	foreach($archTypeDBList as $var)
+	{
+		if($var['Software']['arch']==$archType)
+		{
+			$flag = "archSupported";
+		}
+	}
+	if($flag=="archSupported")
+	{
+		$data = $this->Software->find('all',array('fields'=>'DISTINCT Software.softName','conditions'=>"Software.arch='".$archType."'"));
+		$this->set('softNames',$data);
+		$this->set('archType',$archType);
+	}
+	else
+	{
+		$this->set('archError',"Not supported");
+	}
+}
+
 
 }
 ?>

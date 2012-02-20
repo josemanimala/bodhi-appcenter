@@ -3,9 +3,10 @@
 	width:300px;'>
 <b>Architectures:&nbsp;&nbsp;</b>
 <?PHP
+$archLabel = array('i386'=>'Desktop','armel'=>'Mobile','x86_64'=>'Work Station');
 foreach($archTypeDBList as $var)
 {
-	echo $html->link($var['Software']['arch'], array('controller' => 'software',      'action' => 'arch',$var['Software']['arch']))."&nbsp;";
+	echo $html->link($archLabel[$var['Software']['arch']], array('controller' => 'software',      'action' => 'arch',$var['Software']['arch']))."&nbsp;";
 }
 ?>
 </div>

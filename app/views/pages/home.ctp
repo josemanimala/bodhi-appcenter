@@ -1,5 +1,5 @@
 <div style='position:absolute;
-	right:220px;
+	right:150px;
 	width:300px;'>
 <b>Architectures:&nbsp;&nbsp;</b>
 <?PHP

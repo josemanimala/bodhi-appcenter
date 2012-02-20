@@ -246,8 +246,8 @@
 *
 **/
 
-Configure::write('Appcenter.build','Build: Stable 0.1.6-e11e8b9');
-Configure::write('Appcenter.year','2011');
+Configure::write('Appcenter.build','Build: Stable 0.1.7-b0cc201');
+Configure::write('Appcenter.year','2011-2012');
 Configure::write('Appcenter.copyright','&copy; Bodhilinux Web Team');
 /**
  * If you are on PHP 5.3 uncomment this line and correct your server timezone

@@ -217,7 +217,7 @@ function arch()
 	}
 	if($flag=="archSupported")
 	{
-		$data = $this->Software->find('all',array('fields'=>'DISTINCT Software.softName','conditions'=>"Software.arch='".$archType."'"));
+		$data = $this->Software->find('all',array('fields'=>'DISTINCT Software.softName','conditions'=>"Software.arch='".$archType."' ORDER BY Software.softName ASC"));
 		$this->set('softNames',$data);
 		$this->set('archType',$archType);
 	}

@@ -379,6 +379,20 @@ echo $ajax->autoComplete('Software.search', '/software/search')?>
 </div>
 </div>
 <div class="page"> 
+<!--Adding for arch types -->
+<div style='position:absolute;
+        right:150px;
+        width:300px;'>
+<b>Architectures:&nbsp;&nbsp;</b>
+<?PHP
+$archLabel = array('i386'=>'Desktop','armel'=>'Mobile','x86_64'=>'Work Station');
+foreach($archTypeDBList as $var)
+{
+        echo $html->link($archLabel[$var['Software']['arch']], array('controller' => 'software',      'action' => 'arch',$var['Software']['arch']))."&nbsp;";
+}
+?>
+</div>
+<!-- end -->
 
 			<?php echo $this->Session->flash(); ?>
 			<?php echo $content_for_layout; ?>

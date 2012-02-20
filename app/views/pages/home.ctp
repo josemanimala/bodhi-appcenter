@@ -1,16 +1,3 @@
-<div style='position:absolute;
-	right:150px;
-	width:300px;'>
-<b>Architectures:&nbsp;&nbsp;</b>
-<?PHP
-$archLabel = array('i386'=>'Desktop','armel'=>'Mobile','x86_64'=>'Work Station');
-foreach($archTypeDBList as $var)
-{
-	echo $html->link($archLabel[$var['Software']['arch']], array('controller' => 'software',      'action' => 'arch',$var['Software']['arch']))."&nbsp;";
-}
-?>
-</div>
-
 <h1 class="sectionedit1"><a name="bodhi_linux_add_software_home" id="bodhi_linux_add_software_home">Bodhi Linux AppCenter</a></h1> 
 <div class="level1"> 
 <p> 

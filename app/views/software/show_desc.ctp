@@ -1,6 +1,13 @@
-<h1 class="sectionedit1"><a><?PHP 
+<h1 class="sectionedit1"><a><?PHP
+
+#Deny ACL to handle oracle java licensing issues.
+$deny_print_acl = array("Oracle_Java");
+
+#Architecture Label workaround.
 $archLabel = array('i386'=>'Desktop','armel'=>'Mobile','x86_64'=>'Work Station');
+
 echo str_replace("_"," ",$data[0]['Software']['softName']."/&nbsp;".$archLabel[$data[0]['Software']['arch']]);?></a></h1> 
+
 <div class="level1"> 
 <p> 
 <img src="<?PHP echo $data[0]['Software']['softScreenie'];?>" class="medialeft" align="left" alt="" width="200" />
@@ -11,7 +18,10 @@ echo str_replace("_"," ",$data[0]['Software']['softName']."/&nbsp;".$archLabel[$
 echo $data[0]['Software']['softDesc'];
 ?>
 </p> 
- 
+<?PHP
+if(!in_array($data[0]['Software']['softName'],$deny_print_acl))
+{
+?>
 <p> 
 <h4>Download size:</h4><?PHP 
 echo $data[0]['Software']['softSize']; 
@@ -22,8 +32,10 @@ echo $data[0]['Software']['softSize'];
 <h4>md5 checksum:</h4><?PHP 
 echo $data[0]['Software']['md5']; 
 ?> 
-</p>  
-
+</p>
+<?PHP
+}  
+?>
 <p> 
 <h4>Architectures:</h4><?PHP 
 foreach($archTypeList as $var)
@@ -64,10 +76,18 @@ if($data[0]['Software']['softApt']!="")
 <td align="center"><a href="<?PHP echo $data[0]['Software']['softApt'].'?refresh=yep';?>"><img src="http://www.bodhilinux.com/images/installnow.png" border="0"></a></td> 
 <?PHP
 }
+
+if(!in_array($data[0]['Software']['softName'],$deny_print_acl))
+{
 ?>
 <td align="center"><a href="<?PHP echo $data[0]['Software']['softDown'];?>"><img src="http://www.bodhilinux.com/images/downloadoffline.png" border="0"></a> 
  
-</td></tr> 
+</td>
+<?PHP
+}
+
+?>
+</tr> 
 </table> 
  <strong><a href="<?PHP echo $data[0]['Software']['softApt']?>">FAST INSTALL</a></strong> bypasses the apt-get update done with the "Install Now" button and can <strong><u>NOT</u></strong> be used with a fresh installation.
 <p>Note: The download size will vary for install now method.</p>

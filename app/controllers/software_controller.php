@@ -105,7 +105,7 @@ function search() {
 		#santize and remove any stupid typo errors/ sql injection code
 		$query = $this -> Sanitize -> paranoid($this->data['Software']['search'],array(' '));
 		#future handler to ensure that we can limit the search to trigger only for more than N characters
-		if (strlen($query) > 3)
+		if (strlen($query) >= 3)
 		{
 			#Call to meta Handler
 			$metaSoftList = $this->metaHandler($query,$query,$query);
@@ -137,7 +137,7 @@ function searchPost()
 		#santize and remove any stupid typo errors/ sql injection code
 		$query = $this -> Sanitize -> paranoid($this->data['Software']['search'],array(' '));
 		#future handler to ensure that we can limit the search to trigger only for more than N characters
-		if (strlen($query) > 3)
+		if (strlen($query) >= 3)
 		{
 			#Call to meta Handler
 			$metaSoftList = $this->metaHandler($query,$query,$query);

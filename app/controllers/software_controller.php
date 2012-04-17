@@ -77,8 +77,11 @@ class SoftwareController extends AppController {
         #append subcategory to the meta array
         $list = $this->Software->find('all',array('conditions'=>'Software.softSubCat='."'".$data[0]['Software']['softSubCat']."'",'fields'=>array('Software.softName')));
         foreach($list as $var)
-        {
-            array_push($metaSoftList,$var['Software']['softName']);
+        {   # skip the application displayed but add the rest
+            if ($softName != $var['Software']['softName'])
+            {
+                array_push($metaSoftList,$var['Software']['softName']);
+            }
         }
         #remove duplicates
         $metaSoftList = array_unique($metaSoftList);

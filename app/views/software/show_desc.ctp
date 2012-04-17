@@ -101,17 +101,20 @@ echo $data[0]['Software']['md5'];
 ?>
 </div>
 
-<h2 class="sectionedit4"><a>Related / Similar Applications</a></h2>
-<div class="level2">
-<p>
 <?PHP
 foreach($list as $var)
 {
-        echo $html->link(str_replace("_"," ",$var), array('controller' => 'software','action' => 'showDesc',$var))."<br/>";
+	if (!empty($list))
+	{
+		echo "<h2 class=\"sectionedit4\"><a>Related / Similar Applications</a></h2>";
+		echo "<div class=\"level2\">";
+		echo "<p>";
+		echo $html->link(str_replace("_"," ",$var), array('controller' => 'software','action' => 'showDesc',$var))."<br/>";
+		echo "</p>";
+		echo "</div>";
+	}
 }
 ?>
-</p>
-</div>
 
 <h2 class="sectionedit5"><a>Software Homepage</a></h2>
 <div class="level2">

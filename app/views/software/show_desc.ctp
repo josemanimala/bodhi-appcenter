@@ -109,7 +109,8 @@ if (!empty($list))
 	echo "<p>";
 	foreach($list as $var)
 	{
-		echo $html->link(str_replace("_"," ",$var), array('controller' => 'software','action' => 'showDesc',$var))."<br/>";
+		# hack to make links to same arch as app displayed
+		echo $html->link(str_replace("_"," ",$var), array('controller' => 'software','action' => 'showDesc',$var, $data[0]['Software']['arch']))."<br/>";
 	}
 	echo "</p>";
 	echo "</div>";

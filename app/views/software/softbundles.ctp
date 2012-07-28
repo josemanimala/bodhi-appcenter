@@ -41,5 +41,18 @@ echo "*&nbsp;".$html->link(str_replace("_"," ",$data1[0]['Software']['softName']
 Please see the <strong><a href="/pages/install_instructions" class="wikilink1" title="installation_instructions">Installation Instructions</a></strong> for further information.
 
 </p>
+<p>
+
+<h4>Download size:</h4><?PHP
+echo $data[0]['Softbundle']['softSize'];
+?>
+</p>
+
+<p>
+<h4>md5 checksum:</h4><?PHP
+echo $data[0]['Softbundle']['md5'];
+?>
+</p>
+<p>Note: The download size will vary for install now method.</p>
 
 </div>

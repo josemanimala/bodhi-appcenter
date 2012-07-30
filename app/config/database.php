@@ -78,8 +78,8 @@ class DATABASE_CONFIG {
 		'persistent' => false,
 		'host' => 'localhost',
 		'login' => 'root',
-		'password' => 'ittunnan',
-		'database' => 'AppCenter',
+		'password' => 'tiAFOm7e1a',
+		'database' => 'appcenter',
 		'prefix' => 'appcenter_',
 	);
 

@@ -153,7 +153,7 @@ function searchPost()
 		if (strlen($query) >= 3)
 		{
 			#Call to meta Handler
-			$metaSoftList = $this->metaHandler($query,$query,$queryi,$this->Session->read('arch'));
+			$metaSoftList = $this->metaHandler($query,$query,$query,$this->Session->read('arch'));
 			#woah launch a mega DB search
 			$result = $this -> Software -> find('all',array('conditions'=>"softName LIKE '%".$query."%' OR softCat LIKE '%".str_replace(" ","_",$query)."%' OR softSubCat LIKE '%".str_replace(" ","_",$query)."%'"));
 			foreach($result as $var)

@@ -39,11 +39,11 @@ echo $ajax->autoComplete('Software.search', '/software/search')?>
 <div class="page"> 
 <!--Adding for arch types -->
 <div style='position:absolute;
-        right:150px;
+        right:270px;
         width:300px;'>
 <b>Architectures:&nbsp;&nbsp;</b>
 <?PHP
-$archLabel = array('i386'=>'Desktop','armel'=>'Mobile','x86_64'=>'Work Station');
+$archLabel = array('i386'=>'32bit','armel'=>'armel','x86_64'=>'64bit');
 $archCount = 0;
 foreach($archTypeDBList as $var)
 {

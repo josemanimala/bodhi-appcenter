@@ -1,5 +1,5 @@
 <h2><a><?PHP 
-$archLabel = array('i386'=>'Desktop','armel'=>'Mobile','x86_64'=>'Work Station');
+$archLabel = array('i386'=>'32bit','armel'=>'armel','x86_64'=>'64bit');
 echo str_replace("_"," ",$data[0]['Software']['softName']."/&nbsp;".$archLabel[$data[0]['Software']['arch']]);?></a></h2> 
 <div> 
 <p> 

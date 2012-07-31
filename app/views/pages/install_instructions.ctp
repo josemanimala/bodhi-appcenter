@@ -21,12 +21,12 @@ The <strong>Install Now</strong> button also causes your system to do an <code>a
 
 </div>
 
-<h1 class="sectionedit3"><a name="fast_install" id="fast_install">Fast Install</a></h1>
+<h1 class="sectionedit3"><a name="fast_install" id="fast_install">Quick Install</a></h1>
 <div class="level2">
 
 <p>
 
-The <strong>FAST INSTALL</strong> text link below the buttons will allow you to install a package without the <code>apt-get update</code> process.
+The <strong>Quick Install</strong> text link below the buttons will allow you to install a package without the <code>apt-get update</code> process.
 </p>
 
 <p>

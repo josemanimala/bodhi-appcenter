@@ -18,7 +18,9 @@
  */
 ?>
 <?php
-require('http://www.bodhilinux.com/header.php');
+$contents = file_get_contents('http://www.bodhilinux.com/header.php');
+
+echo $contents;
 ?>
 <?PHP
 	echo $javascript->link('prototype');
